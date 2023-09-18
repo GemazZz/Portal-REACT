@@ -1,8 +1,12 @@
 import "../App.css";
-import { StyledH1 } from "../styles/Helpers";
+import { StyledBody, StyledH1 } from "../styles/Helpers";
 
 const Others = () => {
-  return <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>;
+  return (
+    <StyledBody>
+      <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>
+    </StyledBody>
+  );
 };
 
 export default Others;

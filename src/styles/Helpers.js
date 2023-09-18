@@ -2,8 +2,8 @@ import { styled } from "styled-components";
 
 export const StyledH1 = styled.h1`
   font-size: ${(prop) => (prop.size === "large" ? "65px" : "35px")};
-  margin-top: 80px;
-  margin-bottom: 50px;
+  margin-top: ${(prop) => (prop.size === "large" ? "60px" : "30px")};
+  margin-bottom: ${(prop) => (prop.size === "large" ? "20px" : "5px")};
   padding: 20px;
   border-radius: 35px;
   cursor: default;
