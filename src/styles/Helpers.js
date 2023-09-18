@@ -16,3 +16,9 @@ export const StyledBody = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const StyledDiv = styled.div`
+  width: 1300px;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+`;
