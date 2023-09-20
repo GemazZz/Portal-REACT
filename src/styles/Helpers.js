@@ -21,4 +21,5 @@ export const StyledDiv = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
+  /* align-items: start; */
 `;

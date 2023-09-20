@@ -7,6 +7,8 @@ import Documentation from "./pages/დოკუმენტაცია";
 import Quality from "./pages/ხარისხის მართვის სისტემა";
 import TestCenter from "./pages/სასწავლო ცენტრი";
 import Others from "./pages/სხვადასხვა";
+import Admin from "./pages/Admin";
+import User from "./pages/User";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
   {
     path: "/others",
     element: <Others />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
+  },
+  {
+    path: "/user",
+    element: <User />,
   },
   {
     path: "*",
