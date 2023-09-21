@@ -7,18 +7,19 @@ import BackBtn from "../components/BackBtn";
 
 const TestCenter = (props) => {
   const [password, setPassword] = useState("");
-  const getData = props.data;
-  const url = getData();
+  const getDataAdmin = props.dataAdmin;
+  const urlAdmin = getDataAdmin();
+  const getDataUser = props.dataUser;
+  const urlUser = getDataUser();
   const navigate = useNavigate();
   const passwordChange = (e) => {
     setPassword(e.target.value);
-    console.log(e.target.value);
   };
   const submit = () => {
     if (password === "123") {
-      navigate("/user");
-    } else if (password === "admin") {
-      navigate("/" + url);
+      navigate("/" + urlUser);
+    } else if (password === "234") {
+      navigate("/" + urlAdmin);
     } else {
       alert("პაროლი არასწორია!");
       return;

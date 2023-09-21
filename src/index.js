@@ -17,12 +17,15 @@ if (newDate < 22) {
 if (newDate % 10 === 0) {
   newDate += 1;
 }
-const newNum = newDate ** 9 + 11;
-console.log(newDate);
-console.log(newNum);
-const data = () => {
-  const url = newNum;
-  return url;
+const newNumAdmin = newDate ** 9 + 11;
+const newNumUser = newDate ** 8 + 19;
+const dataAdmin = () => {
+  const urlAdmin = newNumAdmin;
+  return urlAdmin;
+};
+const dataUser = () => {
+  const urlUser = newNumUser;
+  return urlUser;
 };
 
 const router = createBrowserRouter([
@@ -40,18 +43,18 @@ const router = createBrowserRouter([
   },
   {
     path: "/testcenter",
-    element: <TestCenter data={data} />,
+    element: <TestCenter dataAdmin={dataAdmin} dataUser={dataUser} />,
   },
   {
     path: "/others",
     element: <Others />,
   },
   {
-    path: "/" + newNum,
+    path: "/" + newNumAdmin,
     element: <Admin />,
   },
   {
-    path: "/user",
+    path: "/" + newNumUser,
     element: <User />,
   },
   {

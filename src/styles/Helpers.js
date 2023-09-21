@@ -33,7 +33,21 @@ export const StyledDiv = styled.div`
 
 export const StyledInput = styled.input`
   width: 400px;
-  height: 60px;
+  height: 65px;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 25px;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  &::-webkit-inner-spin-button,
+  &::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
+export const StyledSelect = styled.select`
+  width: 400px;
+  height: 65px;
   padding-left: 15px;
   padding-right: 15px;
   font-size: 25px;
