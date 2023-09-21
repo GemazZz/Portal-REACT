@@ -10,6 +10,21 @@ import Others from "./pages/სხვადასხვა";
 import Admin from "./pages/Admin";
 import User from "./pages/User";
 
+let newDate = new Date().getDate() + 11;
+if (newDate < 22) {
+  newDate = newDate + 20;
+}
+if (newDate % 10 === 0) {
+  newDate += 1;
+}
+const newNum = newDate ** 9 + 11;
+console.log(newDate);
+console.log(newNum);
+const data = () => {
+  const url = newNum;
+  return url;
+};
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -25,14 +40,14 @@ const router = createBrowserRouter([
   },
   {
     path: "/testcenter",
-    element: <TestCenter />,
+    element: <TestCenter data={data} />,
   },
   {
     path: "/others",
     element: <Others />,
   },
   {
-    path: "/admin",
+    path: "/" + newNum,
     element: <Admin />,
   },
   {

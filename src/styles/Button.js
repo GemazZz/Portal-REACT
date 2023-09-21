@@ -18,3 +18,21 @@ export const StyledButton = styled.button`
     scale: 0.96;
   }
 `;
+
+export const StyledBackBtn = styled.button`
+  position: absolute;
+  width: 120px;
+  height: 50px;
+  border-radius: 20px;
+  left: 20px;
+  top: 20px;
+  transition: 0.12s;
+  font-size: 20px;
+  background-color: rgb(245, 125, 125);
+  &:hover {
+    scale: 1.07;
+  }
+  &:active {
+    scale: 0.96;
+  }
+`;

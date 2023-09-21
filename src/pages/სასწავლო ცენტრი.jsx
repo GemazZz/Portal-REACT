@@ -1,10 +1,37 @@
+import { useNavigate } from "react-router-dom";
 import "../App.css";
-import { StyledBody, StyledH1 } from "../styles/Helpers";
+import { StyledBody, StyledForm, StyledH1, StyledInput } from "../styles/Helpers";
+import { useState } from "react";
+import { StyledButton } from "../styles/Button";
+import BackBtn from "../components/BackBtn";
 
-const TestCenter = () => {
+const TestCenter = (props) => {
+  const [password, setPassword] = useState("");
+  const getData = props.data;
+  const url = getData();
+  const navigate = useNavigate();
+  const passwordChange = (e) => {
+    setPassword(e.target.value);
+    console.log(e.target.value);
+  };
+  const submit = () => {
+    if (password === "123") {
+      navigate("/user");
+    } else if (password === "admin") {
+      navigate("/" + url);
+    } else {
+      alert("პაროლი არასწორია!");
+      return;
+    }
+  };
   return (
     <StyledBody>
-      <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>
+      <BackBtn />
+      <StyledH1 size="large">ტესტების ცენტრი</StyledH1>
+      <StyledForm>
+        <StyledInput type="password" placeholder="ჩაწერეთ პაროლი" onChange={passwordChange} />
+        <StyledButton onClick={submit}>შესვლა</StyledButton>
+      </StyledForm>
     </StyledBody>
   );
 };
