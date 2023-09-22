@@ -7,8 +7,11 @@ import Documentation from "./pages/დოკუმენტაცია";
 import Quality from "./pages/ხარისხის მართვის სისტემა";
 import TestCenter from "./pages/სასწავლო ცენტრი";
 import Others from "./pages/სხვადასხვა";
-import Admin from "./pages/Admin";
 import User from "./pages/User";
+import Admin from "./pages/admin/Admin";
+import TestCreation from "./pages/admin/TestCreation";
+import TestEditor from "./pages/admin/TestEditor";
+import Stats from "./pages/admin/Stats";
 
 let newDate = new Date().getDate() + 11;
 if (newDate < 22) {
@@ -52,6 +55,18 @@ const router = createBrowserRouter([
   {
     path: "/" + newNumAdmin,
     element: <Admin />,
+  },
+  {
+    path: "/" + newNumAdmin + "/testcreation",
+    element: <TestCreation />,
+  },
+  {
+    path: "/" + newNumAdmin + "/testeditor",
+    element: <TestEditor />,
+  },
+  {
+    path: "/" + newNumAdmin + "/stats",
+    element: <Stats />,
   },
   {
     path: "/" + newNumUser,

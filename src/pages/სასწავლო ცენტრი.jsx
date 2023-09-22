@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router-dom";
-import "../App.css";
 import { StyledBody, StyledForm, StyledH1, StyledInput } from "../styles/Helpers";
 import { useState } from "react";
 import { StyledButton } from "../styles/Button";

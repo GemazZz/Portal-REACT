@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import "../App.css";
 import { StyledButton } from "../styles/Button";
 import { StyledBody, StyledDiv, StyledH1 } from "../styles/Helpers";
 import BackBtn from "../components/BackBtn";

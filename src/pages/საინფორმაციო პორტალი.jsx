@@ -1,8 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import "../App.css";
 import { StyledBody, StyledH1 } from "../styles/Helpers";
 import { StyledButton } from "../styles/Button";
-import BackBtn from "../components/BackBtn";
 
 function Starter() {
   const navigate = useNavigate();

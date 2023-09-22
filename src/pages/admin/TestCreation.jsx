@@ -1,7 +1,7 @@
-import BackBtn from "../components/BackBtn";
-import { StyledBody, StyledH1 } from "../styles/Helpers";
+import { StyledBody, StyledH1 } from "../../styles/Helpers";
+import BackBtn from "../../components/BackBtn";
 
-const Others = () => {
+const TestCreation = () => {
   return (
     <StyledBody>
       <BackBtn />
@@ -10,4 +10,4 @@ const Others = () => {
   );
 };
 
-export default Others;
+export default TestCreation;
