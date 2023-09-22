@@ -5,7 +5,7 @@ const TestCreation = () => {
   return (
     <StyledBody>
       <BackBtn />
-      <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>
+      <StyledH1>ტესტის შექმნა</StyledH1>
     </StyledBody>
   );
 };

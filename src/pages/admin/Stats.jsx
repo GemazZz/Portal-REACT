@@ -5,7 +5,7 @@ const Stats = () => {
   return (
     <StyledBody>
       <BackBtn />
-      <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>
+      <StyledH1>სტატისტიკა</StyledH1>
     </StyledBody>
   );
 };

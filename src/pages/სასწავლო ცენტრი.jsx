@@ -18,7 +18,8 @@ const TestCenter = (props) => {
     if (password === "123") {
       navigate("/" + urlUser);
     } else if (password === "234") {
-      navigate("/" + urlAdmin);
+      window.open("http://192.168.101.30:3000/" + urlAdmin, "_blank");
+      navigate("/");
     } else {
       alert("პაროლი არასწორია!");
       return;

@@ -54,7 +54,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/" + newNumAdmin,
-    element: <Admin />,
+    element: <Admin dataAdmin={dataAdmin} />,
   },
   {
     path: "/" + newNumAdmin + "/testcreation",

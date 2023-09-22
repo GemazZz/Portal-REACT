@@ -5,7 +5,7 @@ const TestEditor = () => {
   return (
     <StyledBody>
       <BackBtn />
-      <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>
+      <StyledH1>ტესტის დამატება</StyledH1>
     </StyledBody>
   );
 };
