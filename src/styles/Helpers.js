@@ -8,6 +8,14 @@ export const StyledH1 = styled.h1`
   border-radius: 35px;
   cursor: default;
 `;
+export const StyledLabel = styled.label`
+  font-size: ${(prop) => (prop.size === "large" ? "35px" : "30px")};
+  margin-top: ${(prop) => (prop.size === "large" ? "60px" : "30px")};
+  margin-bottom: ${(prop) => (prop.size === "large" ? "20px" : "5px")};
+  padding: 8px;
+  border-radius: 35px;
+  cursor: default;
+`;
 
 export const StyledBody = styled.div`
   position: relative;
@@ -32,19 +40,28 @@ export const StyledDiv = styled.div`
 `;
 
 export const StyledInput = styled.input`
-  width: 400px;
-  height: 65px;
+  width: ${(prop) => (prop.size === "large" ? "700px" : "400px")};
+  height: ${(prop) => (prop.size === "large" ? "150px" : "65px")};
   padding-left: 15px;
   padding-right: 15px;
   font-size: 25px;
   border-radius: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
   &::-webkit-inner-spin-button,
   &::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
   }
 `;
+export const StyledTextArea = styled.textarea`
+  width: ${(prop) => (prop.size === "large" ? "650px" : "400px")};
+  height: ${(prop) => (prop.size === "large" ? "130px" : "65px")};
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 25px;
+  border-radius: 20px;
+`;
+
 export const StyledSelect = styled.select`
   width: 400px;
   height: 65px;

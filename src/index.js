@@ -58,15 +58,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/" + newNumAdmin + "/testcreation",
-    element: <TestCreation />,
+    element: <TestCreation dataAdmin={dataAdmin} />,
   },
   {
     path: "/" + newNumAdmin + "/testeditor",
-    element: <TestEditor />,
+    element: <TestEditor dataAdmin={dataAdmin} />,
   },
   {
     path: "/" + newNumAdmin + "/stats",
-    element: <Stats />,
+    element: <Stats dataAdmin={dataAdmin} />,
   },
   {
     path: "/" + newNumUser,
