@@ -1,4 +1,4 @@
-import BackBtn from "../../components/BackBtn";
+import CloseBtn from "../../components/CloseBtn";
 import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1 } from "../../styles/Helpers";
 import { useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ const Admin = (props) => {
   const urlAdmin = getDataAdmin();
   return (
     <StyledBody>
+      <CloseBtn />
       <StyledH1 size="large">ადმინისტრაცია</StyledH1>
       <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/testcreation")}>
         ტესტების შედგენა

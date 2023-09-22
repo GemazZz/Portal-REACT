@@ -4,7 +4,6 @@ import BackBtn from "../../components/BackBtn";
 const TestCreation = () => {
   return (
     <StyledBody>
-      <BackBtn />
       <StyledH1>ტესტის შექმნა</StyledH1>
     </StyledBody>
   );

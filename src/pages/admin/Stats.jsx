@@ -4,7 +4,6 @@ import BackBtn from "../../components/BackBtn";
 const Stats = () => {
   return (
     <StyledBody>
-      <BackBtn />
       <StyledH1>სტატისტიკა</StyledH1>
     </StyledBody>
   );
