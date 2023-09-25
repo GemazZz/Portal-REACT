@@ -71,3 +71,16 @@ export const StyledSelect = styled.select`
   border-radius: 20px;
   margin-bottom: 20px;
 `;
+
+export const StyledCheckbox = styled.input`
+  position: absolute;
+  margin-top: 16px;
+  margin-left: 12px;
+  width: 30px;
+  height: 30px;
+`;
+export const StyledFile = styled.input`
+  height: 45px;
+  width: 290px;
+  font-size: 20px;
+`;

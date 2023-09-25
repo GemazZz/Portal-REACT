@@ -12,6 +12,7 @@ import Admin from "./pages/admin/Admin";
 import TestCreation from "./pages/admin/TestCreation";
 import TestEditor from "./pages/admin/TestEditor";
 import Stats from "./pages/admin/Stats";
+import SpecialEditor from "./pages/admin/SpecialEditor";
 
 let newDate = new Date().getDate() + 11;
 if (newDate < 22) {
@@ -63,6 +64,10 @@ const router = createBrowserRouter([
   {
     path: "/" + newNumAdmin + "/testeditor",
     element: <TestEditor dataAdmin={dataAdmin} />,
+  },
+  {
+    path: "/" + newNumAdmin + "/specialeditor",
+    element: <SpecialEditor dataAdmin={dataAdmin} />,
   },
   {
     path: "/" + newNumAdmin + "/stats",

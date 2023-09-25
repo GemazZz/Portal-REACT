@@ -1,7 +1,7 @@
 import { styled } from "styled-components";
 
 export const StyledButton = styled.button`
-  width: ${(prop) => (prop.size === "large" ? "380px" : "255px")};
+  width: ${(prop) => (prop.size === "large" ? "390px" : "255px")};
   height: ${(prop) => (prop.size === "large" ? "80px" : "50px")};
   transition: 0.12s;
   cursor: pointer;

@@ -17,6 +17,9 @@ const Admin = (props) => {
       <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/testeditor")}>
         ტესტების რედაქტირება
       </StyledButton>
+      <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/specialeditor")}>
+        სპეციალობების რედაქტირება
+      </StyledButton>
       <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/stats")}>
         სტატისტიკის ნახვა
       </StyledButton>
