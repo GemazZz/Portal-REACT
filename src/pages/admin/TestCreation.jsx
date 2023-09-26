@@ -37,7 +37,7 @@ const TestCreation = (props) => {
           <>
             <StyledFile type="file" />
             <StyledLabel>პასუხი 1:</StyledLabel>
-            <StyledInput placeholder="სწორი პასუხი" />
+            <StyledInput />
           </>
         )}
         {multipleAnswer && (
@@ -64,7 +64,7 @@ const TestCreation = (props) => {
       <div>
         <StyledFile type="file" />
         <StyledLabel>პასუხი 4:</StyledLabel>
-        <StyledInput />
+        <StyledInput placeholder="სწორი პასუხი" />
         {multipleAnswer && <StyledCheckbox type="checkbox" />}
       </div>
       <StyledButton size="large" onClick={() => navigate("/" + urlAdmin)}>

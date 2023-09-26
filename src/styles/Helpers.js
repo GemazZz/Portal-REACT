@@ -10,7 +10,7 @@ export const StyledH1 = styled.h1`
 `;
 export const StyledLabel = styled.label`
   font-size: ${(prop) => (prop.size === "large" ? "35px" : "30px")};
-  margin-top: ${(prop) => (prop.size === "large" ? "60px" : "30px")};
+  margin-top: ${(prop) => (prop.size === "large" ? "60px" : "0px")};
   margin-bottom: ${(prop) => (prop.size === "large" ? "20px" : "5px")};
   padding: 8px;
   border-radius: 35px;
@@ -83,4 +83,16 @@ export const StyledFile = styled.input`
   height: 45px;
   width: 290px;
   font-size: 20px;
+`;
+
+export const StyledLineDiv = styled.div`
+  height: 70px;
+  width: 500px;
+  margin: 5px;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
 `;
