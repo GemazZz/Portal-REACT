@@ -9,9 +9,9 @@ export const StyledH1 = styled.h1`
   cursor: default;
 `;
 export const StyledLabel = styled.label`
-  font-size: ${(prop) => (prop.size === "large" ? "35px" : "30px")};
-  margin-top: ${(prop) => (prop.size === "large" ? "60px" : "0px")};
-  margin-bottom: ${(prop) => (prop.size === "large" ? "20px" : "5px")};
+  font-size: 30px;
+  margin-top: ${(prop) => (prop.size === "large" ? "30px" : "0px")};
+  margin-bottom: 5px;
   padding: 8px;
   border-radius: 35px;
   cursor: default;

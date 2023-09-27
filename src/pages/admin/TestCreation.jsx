@@ -9,7 +9,8 @@ const TestCreation = (props) => {
   const urlAdmin = getDataAdmin();
   const [multipleAnswer, setMultipleAnswer] = useState(false);
   const [firstAnswer, setFirstAnswer] = useState();
-  console.log(firstAnswer);
+  const parseData = JSON.parse(localStorage.getItem("special"));
+  console.log(parseData);
   return (
     <StyledBody>
       <StyledH1 size="large" style={{ marginTop: "30px" }}>
@@ -20,12 +21,13 @@ const TestCreation = (props) => {
           <option value="#" selected>
             სპეციალობა
           </option>
-          <option value="#">ტექნოლოგი</option>
-          <option value="#">ინჟინერი</option>
-          <option value="#">ეკონომისტი</option>
+          {parseData &&
+            parseData.map((item) => {
+              return <option value="#">{item}</option>;
+            })}
         </StyledSelect>
         <StyledCheckbox type="checkbox" style={{ left: "1260px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
-        <StyledLabel style={{ position: "absolute", left: "1300px", top: "147px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
+        <StyledLabel style={{ position: "absolute", left: "1300px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
       </div>
       <div>
         <StyledLabel>აირჩიეთ ფოტო: </StyledLabel>
@@ -37,7 +39,7 @@ const TestCreation = (props) => {
           <>
             <StyledFile type="file" />
             <StyledLabel>პასუხი 1:</StyledLabel>
-            <StyledInput />
+            <StyledInput placeholder="სწორი პასუხი" s />
           </>
         )}
         {multipleAnswer && (
@@ -64,7 +66,7 @@ const TestCreation = (props) => {
       <div>
         <StyledFile type="file" />
         <StyledLabel>პასუხი 4:</StyledLabel>
-        <StyledInput placeholder="სწორი პასუხი" />
+        <StyledInput />
         {multipleAnswer && <StyledCheckbox type="checkbox" />}
       </div>
       <StyledButton size="large" onClick={() => navigate("/" + urlAdmin)}>
