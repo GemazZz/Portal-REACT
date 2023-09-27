@@ -32,7 +32,7 @@ const SpecialEditor = () => {
           onClick={(e) => {
             e.preventDefault();
             if (!newSpecial) {
-              alert("ჩაწერეთ სპეციალობა");
+              alert("ჩაწერეთ სპეციალობა!");
               return;
             }
             addLocalStorage("special", newSpecial);

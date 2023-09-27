@@ -54,8 +54,8 @@ export const StyledInput = styled.input`
   }
 `;
 export const StyledTextArea = styled.textarea`
-  width: ${(prop) => (prop.size === "large" ? "650px" : "400px")};
-  height: ${(prop) => (prop.size === "large" ? "130px" : "65px")};
+  width: ${(prop) => (prop.size === "large" ? "690px" : "400px")};
+  height: ${(prop) => (prop.size === "large" ? "140px" : "65px")};
   margin-bottom: 15px;
   padding: 10px;
   font-size: 25px;

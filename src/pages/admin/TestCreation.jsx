@@ -8,8 +8,8 @@ const TestCreation = (props) => {
   const getDataAdmin = props.dataAdmin;
   const urlAdmin = getDataAdmin();
 
-  const [multipleAnswer, setMultipleAnswer] = useState(false);
   const [question, setQuestion] = useState("");
+  const [multipleAnswer, setMultipleAnswer] = useState(false);
 
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [firstAnswer, setFirstAnswer] = useState("");
@@ -36,6 +36,7 @@ const TestCreation = (props) => {
   //   fourthAnswer,
   //   checkFourthAnswer
   // );
+
   const parseData = JSON.parse(localStorage.getItem("special"));
   return (
     <StyledBody>
@@ -51,8 +52,8 @@ const TestCreation = (props) => {
             return <option value="#">{item}</option>;
           })}
         </StyledSelect>
-        <StyledCheckbox type="checkbox" style={{ left: "1260px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
-        <StyledLabel style={{ position: "absolute", left: "1300px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
+        <StyledCheckbox type="checkbox" style={{ right: "450px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
+        <StyledLabel style={{ position: "absolute", right: "80px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
       </div>
       <div>
         <StyledLabel>აირჩიეთ ფოტო: </StyledLabel>
