@@ -10,6 +10,8 @@ const testData = [
 const User = () => {
   const [userId, setUserId] = useState("");
   const foundUser = testData.find((user) => user.userId === parseInt(userId));
+
+  const parseData = JSON.parse(localStorage.getItem("special"));
   return (
     <StyledBody>
       <StyledH1 size="large">მომხმარებელი</StyledH1>
@@ -20,11 +22,10 @@ const User = () => {
           {foundUser.lastName}
         </StyledH1>
       ) : (
-        <StyledH1 size="small">შეიყვანეთ ტაბელის ნომერი სწორად</StyledH1>
+        <StyledH1 size="small">შეიყვანეთ საიდენტიფიკაციო კოდი სწორად</StyledH1>
       )}
       <StyledInput
         type="number"
-        placeholder="ტაბელის ნომერი"
         onChange={(e) => {
           setUserId(e.target.value);
         }}
@@ -33,9 +34,9 @@ const User = () => {
         <option value="#" selected>
           სპეციალობა
         </option>
-        <option value="#">ტექნოლოგი</option>
-        <option value="#">ინჟინერი</option>
-        <option value="#">ეკონომისტი</option>
+        {parseData.map((item) => {
+          return <option value="#">{item}</option>;
+        })}
       </StyledSelect>
       <StyledButton>დაწყება</StyledButton>
     </StyledBody>

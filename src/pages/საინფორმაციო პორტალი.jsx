@@ -3,6 +3,9 @@ import { StyledBody, StyledH1 } from "../styles/Helpers";
 import { StyledButton } from "../styles/Button";
 
 function Starter() {
+  if (!localStorage.getItem("special")) {
+    localStorage.setItem("special", JSON.stringify([]));
+  }
   const navigate = useNavigate();
   return (
     <StyledBody>

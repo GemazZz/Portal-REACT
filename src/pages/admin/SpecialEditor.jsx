@@ -8,7 +8,7 @@ const SpecialEditor = () => {
     localStorage.setItem("special", JSON.stringify([]));
   }
   const parseData = JSON.parse(localStorage.getItem("special"));
-  const [newSpecial, setNewSpecial] = useState();
+  const [newSpecial, setNewSpecial] = useState("");
   const [currentSpecials, setCurrentSpecials] = useState(parseData);
   const dltSpecial = (items) => {
     const updatedData = currentSpecials.filter((item) => {
@@ -17,6 +17,7 @@ const SpecialEditor = () => {
     setCurrentSpecials(updatedData);
     localStorage.setItem("special", JSON.stringify(updatedData));
   };
+
   return (
     <StyledBody>
       <StyledForm>
@@ -28,7 +29,12 @@ const SpecialEditor = () => {
           }}
         />
         <StyledButton
-          onClick={() => {
+          onClick={(e) => {
+            e.preventDefault();
+            if (!newSpecial) {
+              alert("ჩაწერეთ სპეციალობა");
+              return;
+            }
             addLocalStorage("special", newSpecial);
             setCurrentSpecials([...parseData, newSpecial]);
             setNewSpecial("");

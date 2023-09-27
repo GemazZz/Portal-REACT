@@ -7,10 +7,36 @@ const TestCreation = (props) => {
   const navigate = useNavigate();
   const getDataAdmin = props.dataAdmin;
   const urlAdmin = getDataAdmin();
+
   const [multipleAnswer, setMultipleAnswer] = useState(false);
-  const [firstAnswer, setFirstAnswer] = useState();
+  const [question, setQuestion] = useState("");
+
+  const [correctAnswer, setCorrectAnswer] = useState("");
+  const [firstAnswer, setFirstAnswer] = useState("");
+  const [checkFirstAnswer, setCheckFirstAnswer] = useState(false);
+
+  const [secondAnswer, setSecondAnswer] = useState("");
+  const [checkSecondAnswer, setCheckSecondAnswer] = useState(false);
+
+  const [thirdAnswer, setThirdAnswer] = useState("");
+  const [checkThirdAnswer, setCheckThirdAnswer] = useState(false);
+
+  const [fourthAnswer, setFourthAnswer] = useState("");
+  const [checkFourthAnswer, setCheckFourthAnswer] = useState(false);
+
+  // console.log(
+  //   question,
+  //   correctAnswer,
+  //   firstAnswer,
+  //   checkFirstAnswer,
+  //   secondAnswer,
+  //   checkSecondAnswer,
+  //   thirdAnswer,
+  //   checkThirdAnswer,
+  //   fourthAnswer,
+  //   checkFourthAnswer
+  // );
   const parseData = JSON.parse(localStorage.getItem("special"));
-  console.log(parseData);
   return (
     <StyledBody>
       <StyledH1 size="large" style={{ marginTop: "30px" }}>
@@ -21,10 +47,9 @@ const TestCreation = (props) => {
           <option value="#" selected>
             სპეციალობა
           </option>
-          {parseData &&
-            parseData.map((item) => {
-              return <option value="#">{item}</option>;
-            })}
+          {parseData.map((item) => {
+            return <option value="#">{item}</option>;
+          })}
         </StyledSelect>
         <StyledCheckbox type="checkbox" style={{ left: "1260px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
         <StyledLabel style={{ position: "absolute", left: "1300px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
@@ -33,41 +58,100 @@ const TestCreation = (props) => {
         <StyledLabel>აირჩიეთ ფოტო: </StyledLabel>
         <StyledFile type="file" />
       </div>
-      <StyledTextArea size="large" placeholder="შეკითხვის ადგილი" />
+      <StyledTextArea
+        size="large"
+        placeholder="შეკითხვის ადგილი"
+        value={question}
+        onChange={(e) => {
+          setQuestion(e.target.value);
+        }}
+      />
       <div>
         {!multipleAnswer && (
           <>
             <StyledFile type="file" />
             <StyledLabel>პასუხი 1:</StyledLabel>
-            <StyledInput placeholder="სწორი პასუხი" s />
+            <StyledInput
+              placeholder="სწორი პასუხი"
+              value={correctAnswer}
+              onChange={(e) => {
+                setCorrectAnswer(e.target.value);
+              }}
+            />
           </>
         )}
         {multipleAnswer && (
           <>
             <StyledFile type="file" />
             <StyledLabel>პასუხი 1:</StyledLabel>
-            <StyledInput />
+            <StyledInput
+              value={firstAnswer}
+              onChange={(e) => {
+                setFirstAnswer(e.target.value);
+              }}
+            />
+            <StyledCheckbox
+              type="checkbox"
+              onChange={() => {
+                setCheckFirstAnswer(!checkFirstAnswer);
+              }}
+            />
           </>
         )}
-        {multipleAnswer && <StyledCheckbox type="checkbox" />}
       </div>
       <div>
         <StyledFile type="file" />
         <StyledLabel>პასუხი 2:</StyledLabel>
-        <StyledInput />
-        {multipleAnswer && <StyledCheckbox type="checkbox" />}
+        <StyledInput
+          value={secondAnswer}
+          onChange={(e) => {
+            setSecondAnswer(e.target.value);
+          }}
+        />
+        {multipleAnswer && (
+          <StyledCheckbox
+            type="checkbox"
+            onChange={() => {
+              setCheckSecondAnswer(!checkSecondAnswer);
+            }}
+          />
+        )}
       </div>
       <div>
         <StyledFile type="file" />
         <StyledLabel>პასუხი 3:</StyledLabel>
-        <StyledInput />
-        {multipleAnswer && <StyledCheckbox type="checkbox" />}
+        <StyledInput
+          value={thirdAnswer}
+          onChange={(e) => {
+            setThirdAnswer(e.target.value);
+          }}
+        />
+        {multipleAnswer && (
+          <StyledCheckbox
+            type="checkbox"
+            onChange={() => {
+              setCheckThirdAnswer(!checkThirdAnswer);
+            }}
+          />
+        )}
       </div>
       <div>
         <StyledFile type="file" />
         <StyledLabel>პასუხი 4:</StyledLabel>
-        <StyledInput />
-        {multipleAnswer && <StyledCheckbox type="checkbox" />}
+        <StyledInput
+          value={fourthAnswer}
+          onChange={(e) => {
+            setFourthAnswer(e.target.value);
+          }}
+        />
+        {multipleAnswer && (
+          <StyledCheckbox
+            type="checkbox"
+            onChange={() => {
+              setCheckFourthAnswer(!checkFourthAnswer);
+            }}
+          />
+        )}
       </div>
       <StyledButton size="large" onClick={() => navigate("/" + urlAdmin)}>
         დამატება
