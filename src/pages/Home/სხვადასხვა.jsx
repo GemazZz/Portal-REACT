@@ -1,5 +1,5 @@
-import BackBtn from "../components/BackBtn";
-import { StyledBody, StyledH1 } from "../styles/Helpers";
+import BackBtn from "../../components/BackBtn";
+import { StyledBody, StyledH1 } from "../../styles/Helpers";
 
 const Others = () => {
   return (

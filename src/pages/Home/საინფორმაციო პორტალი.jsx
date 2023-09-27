@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import { StyledBody, StyledH1 } from "../styles/Helpers";
-import { StyledButton } from "../styles/Button";
+import { StyledBody, StyledH1 } from "../../styles/Helpers";
+import { StyledButton } from "../../styles/Button";
 
 function Starter() {
   if (!localStorage.getItem("special")) {

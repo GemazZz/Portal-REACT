@@ -2,17 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Starter from "./pages/საინფორმაციო პორტალი";
-import Documentation from "./pages/დოკუმენტაცია";
-import Quality from "./pages/ხარისხის მართვის სისტემა";
-import TestCenter from "./pages/სასწავლო ცენტრი";
-import Others from "./pages/სხვადასხვა";
-import User from "./pages/User";
-import Admin from "./pages/admin/Admin";
-import TestCreation from "./pages/admin/TestCreation";
-import TestEditor from "./pages/admin/TestEditor";
-import Stats from "./pages/admin/Stats";
-import SpecialEditor from "./pages/admin/SpecialEditor";
+import Starter from "./pages/Home/საინფორმაციო პორტალი";
+import Documentation from "./pages/Home/დოკუმენტაცია";
+import Quality from "./pages/Home/ხარისხის მართვის სისტემა";
+import TestCenter from "./pages/Home/სასწავლო ცენტრი";
+import Others from "./pages/Home/სხვადასხვა";
+import Admin from "./pages/Admin/Admin";
+import TestCreation from "./pages/Admin/TestCreation";
+import TestEditor from "./pages/Admin/TestEditor";
+import Stats from "./pages/Admin/Stats";
+import SpecialEditor from "./pages/Admin/SpecialEditor";
+import User from "./pages/User/User";
 
 let newDate = new Date().getDate() + 11;
 if (newDate < 22) {

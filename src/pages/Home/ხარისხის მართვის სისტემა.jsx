@@ -1,6 +1,6 @@
-import BackBtn from "../components/BackBtn";
-import { StyledButton } from "../styles/Button";
-import { StyledBody, StyledH1 } from "../styles/Helpers";
+import BackBtn from "../../components/BackBtn";
+import { StyledButton } from "../../styles/Button";
+import { StyledBody, StyledH1 } from "../../styles/Helpers";
 
 function Quality() {
   return (

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { StyledButton } from "../styles/Button";
-import { StyledBody, StyledH1, StyledInput, StyledSelect } from "../styles/Helpers";
+import { StyledButton } from "../../styles/Button";
+import { StyledBody, StyledH1, StyledInput, StyledSelect } from "../../styles/Helpers";
 
 const testData = [
   { firstName: "გოგა", lastName: "გემაზაშვილი", userId: 1234 },

@@ -1,8 +1,8 @@
 import { useNavigate } from "react-router-dom";
-import { StyledBody, StyledForm, StyledH1, StyledInput } from "../styles/Helpers";
+import { StyledBody, StyledForm, StyledH1, StyledInput } from "../../styles/Helpers";
 import { useState } from "react";
-import { StyledButton } from "../styles/Button";
-import BackBtn from "../components/BackBtn";
+import { StyledButton } from "../../styles/Button";
+import BackBtn from "../../components/BackBtn";
 
 const TestCenter = (props) => {
   const [password, setPassword] = useState("");
