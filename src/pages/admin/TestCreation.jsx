@@ -2,14 +2,19 @@ import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledLabel, StyledSelect, StyledTextArea, StyledCheckbox, StyledFile } from "../../styles/Helpers";
 import { useState } from "react";
+import { addLocalStorage } from "../../helpers/Helpers";
 
 const TestCreation = (props) => {
+  if (!localStorage.getItem("questions")) {
+    localStorage.setItem("questions", JSON.stringify([]));
+  }
   const navigate = useNavigate();
   const getDataAdmin = props.dataAdmin;
   const urlAdmin = getDataAdmin();
 
   const [question, setQuestion] = useState("");
   const [multipleAnswer, setMultipleAnswer] = useState(false);
+  const [category, setCategory] = useState("");
 
   const [correctAnswer, setCorrectAnswer] = useState("");
   const [firstAnswer, setFirstAnswer] = useState("");
@@ -24,32 +29,58 @@ const TestCreation = (props) => {
   const [fourthAnswer, setFourthAnswer] = useState("");
   const [checkFourthAnswer, setCheckFourthAnswer] = useState(false);
 
-  // console.log(
-  //   question,
-  //   correctAnswer,
-  //   firstAnswer,
-  //   checkFirstAnswer,
-  //   secondAnswer,
-  //   checkSecondAnswer,
-  //   thirdAnswer,
-  //   checkThirdAnswer,
-  //   fourthAnswer,
-  //   checkFourthAnswer
-  // );
-
   const parseData = JSON.parse(localStorage.getItem("special"));
+  let questionData;
+  if (!multipleAnswer) {
+    questionData = {
+      question,
+      multipleAnswer,
+      questionId: new Date().getTime(),
+      category,
+      correctAnswer,
+      secondAnswer,
+      thirdAnswer,
+      fourthAnswer,
+    };
+  } else {
+    questionData = {
+      question,
+      multipleAnswer,
+      questionId: new Date().getTime(),
+      category,
+      firstAnswer,
+      checkFirstAnswer,
+      secondAnswer,
+      checkSecondAnswer,
+      thirdAnswer,
+      checkThirdAnswer,
+      fourthAnswer,
+      checkFourthAnswer,
+    };
+  }
+
+  const addQuestionFunc = () => {
+    addLocalStorage("questions", questionData);
+    navigate("/" + urlAdmin);
+    questionData = {};
+  };
+
   return (
     <StyledBody>
       <StyledH1 size="large" style={{ marginTop: "30px" }}>
         ტესტის შექმნა
       </StyledH1>
       <div>
-        <StyledSelect>
+        <StyledSelect
+          onChange={(e) => {
+            setCategory(e.target.value);
+          }}
+        >
           <option value="#" selected>
             სპეციალობა
           </option>
           {parseData.map((item) => {
-            return <option value="#">{item}</option>;
+            return <option value={item}>{item}</option>;
           })}
         </StyledSelect>
         <StyledCheckbox type="checkbox" style={{ right: "450px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
@@ -70,7 +101,6 @@ const TestCreation = (props) => {
       <div>
         {!multipleAnswer && (
           <>
-            <StyledFile type="file" />
             <StyledLabel>პასუხი 1:</StyledLabel>
             <StyledInput
               placeholder="სწორი პასუხი"
@@ -83,7 +113,6 @@ const TestCreation = (props) => {
         )}
         {multipleAnswer && (
           <>
-            <StyledFile type="file" />
             <StyledLabel>პასუხი 1:</StyledLabel>
             <StyledInput
               value={firstAnswer}
@@ -101,7 +130,6 @@ const TestCreation = (props) => {
         )}
       </div>
       <div>
-        <StyledFile type="file" />
         <StyledLabel>პასუხი 2:</StyledLabel>
         <StyledInput
           value={secondAnswer}
@@ -119,7 +147,6 @@ const TestCreation = (props) => {
         )}
       </div>
       <div>
-        <StyledFile type="file" />
         <StyledLabel>პასუხი 3:</StyledLabel>
         <StyledInput
           value={thirdAnswer}
@@ -137,7 +164,6 @@ const TestCreation = (props) => {
         )}
       </div>
       <div>
-        <StyledFile type="file" />
         <StyledLabel>პასუხი 4:</StyledLabel>
         <StyledInput
           value={fourthAnswer}
@@ -154,7 +180,7 @@ const TestCreation = (props) => {
           />
         )}
       </div>
-      <StyledButton size="large" onClick={() => navigate("/" + urlAdmin)}>
+      <StyledButton size="large" onClick={() => addQuestionFunc()}>
         დამატება
       </StyledButton>
     </StyledBody>

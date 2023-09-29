@@ -52,3 +52,20 @@ export const StyledDltBtn = styled.button`
     scale: 0.96;
   }
 `;
+export const StyledDltBtn1 = styled.button`
+  position: absolute;
+  width: 120px;
+  height: 50px;
+  border-radius: 20px;
+  right: 15px;
+  top: 15px;
+  transition: 0.12s;
+  font-size: 20px;
+  background-color: rgb(245, 125, 125);
+  &:hover {
+    scale: 1.07;
+  }
+  &:active {
+    scale: 0.96;
+  }
+`;

@@ -24,6 +24,12 @@ export const StyledBody = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const StyledDivLine = styled.div`
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
 export const StyledForm = styled.form`
   position: relative;
   display: flex;
@@ -79,6 +85,12 @@ export const StyledCheckbox = styled.input`
   width: 30px;
   height: 30px;
 `;
+export const StyledCheckbox1 = styled.input`
+  margin-top: 16px;
+  margin-right: 12px;
+  width: 30px;
+  height: 30px;
+`;
 export const StyledFile = styled.input`
   height: 45px;
   width: 290px;
@@ -95,4 +107,44 @@ export const StyledLineDiv = styled.div`
   align-items: center;
   border: 1px solid black;
   border-radius: 10px;
+`;
+export const StyledQuestionLineDiv = styled.div`
+  position: relative;
+  background-color: rgb(157, 157, 157);
+  width: 1100px;
+  margin: 10px;
+  padding: 20px;
+  padding-bottom: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+`;
+
+export const StyledNumberOfCorrectAnswer = styled.p`
+  font-size: 20px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+`;
+
+export const StyledOptionBtn = styled.label`
+  position: relative;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  width: min(500px);
+  /* height: 70px; */
+  transition: 0.12s;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 25px;
+  margin-top: 12px;
+  background-color: #f3cec6;
+  border-radius: 15px;
+  border: 1px solid black;
+  font-family: "Times New Roman", Times, serif;
 `;
