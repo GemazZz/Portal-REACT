@@ -35,7 +35,7 @@ const User = () => {
           სპეციალობა
         </option>
         {parseData.map((item) => {
-          return <option value="#">{item}</option>;
+          return <option value={item}>{item}</option>;
         })}
       </StyledSelect>
       <StyledButton>დაწყება</StyledButton>

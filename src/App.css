@@ -6,6 +6,7 @@
 
 body {
   /* background-image: url(./assets/29.webp); */
+  width: 1900px;
   background-size: cover;
   background-color: rgb(117, 117, 117);
 }

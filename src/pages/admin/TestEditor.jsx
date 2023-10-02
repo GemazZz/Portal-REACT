@@ -10,7 +10,22 @@ import {
   StyledQuestionLineDiv,
   StyledSelect,
 } from "../../styles/Helpers";
-import { StyledDltBtn, StyledDltBtn1 } from "../../styles/Button";
+import { StyledDltBtn1 } from "../../styles/Button";
+
+function shuffleArray(array) {
+  const shuffledArray = [...array];
+  for (let i = shuffledArray.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
+  }
+  return shuffledArray;
+}
+
+function questionArr(question, option, arr) {
+  if (question[option] !== undefined && question.option !== "") {
+    arr.push(question[option]);
+  }
+}
 
 const TestEditor = () => {
   const [currentSpecial, setCurrentSpecial] = useState("");
@@ -25,6 +40,9 @@ const TestEditor = () => {
   const multipleAnswerQuestions = questionData.filter((item) => {
     return item.multipleAnswer === true;
   });
+
+  const singleShuffledArr = shuffleArray(singleAnswerQuestions);
+  const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
 
   return (
     <StyledBody>
@@ -42,27 +60,33 @@ const TestEditor = () => {
         })}
       </StyledSelect>
       {singleAnswerQuestions &&
-        singleAnswerQuestions.map((question) => {
+        singleShuffledArr.map((question) => {
+          let questionAnswers = [];
+          if (question.correctAnswer !== undefined && question.correctAnswer !== "") {
+            questionAnswers.push(question.correctAnswer);
+          }
+          if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
+            questionAnswers.push(question.secondAnswer);
+          }
+          if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
+            questionAnswers.push(question.thirdAnswer);
+          }
+          if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
+            questionAnswers.push(question.fourthAnswer);
+          }
+          const shuffledQuestionAnswers = shuffleArray(questionAnswers);
           return (
             currentSpecial === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>
                 <StyledLabel>{question.question}</StyledLabel>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="radio" name={question.questionId} />
-                  <StyledOptionBtn>Lorem, ipsum.</StyledOptionBtn>
-                </StyledDivLine>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="radio" name={question.questionId} />
-                  <StyledOptionBtn>Lorem, ipsum dolor.</StyledOptionBtn>
-                </StyledDivLine>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="radio" name={question.questionId} />
-                  <StyledOptionBtn>Lorem ipsum dolor sit.</StyledOptionBtn>
-                </StyledDivLine>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="radio" name={question.questionId} />
-                  <StyledOptionBtn>Lorem ipsum dolor sit amet.</StyledOptionBtn>
-                </StyledDivLine>
+                {shuffledQuestionAnswers.map((answer) => {
+                  return (
+                    <StyledDivLine>
+                      <StyledCheckbox1 type="radio" name={question.questionId} id={answer} />
+                      <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
+                    </StyledDivLine>
+                  );
+                })}
                 <StyledNumberOfCorrectAnswer>1 სწორი პასუხი</StyledNumberOfCorrectAnswer>
                 <StyledDltBtn1
                   onClick={() => {
@@ -80,27 +104,33 @@ const TestEditor = () => {
           );
         })}
       {multipleAnswerQuestions &&
-        multipleAnswerQuestions.map((question) => {
+        multipleShuffledArr.map((question) => {
+          let questionAnswers = [];
+          if (question.firstAnswer !== undefined && question.firstAnswer !== "") {
+            questionAnswers.push(question.firstAnswer);
+          }
+          if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
+            questionAnswers.push(question.secondAnswer);
+          }
+          if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
+            questionAnswers.push(question.thirdAnswer);
+          }
+          if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
+            questionAnswers.push(question.fourthAnswer);
+          }
+          const shuffledQuestionAnswers = shuffleArray(questionAnswers);
           return (
             currentSpecial === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>
                 <StyledLabel>{question.question}</StyledLabel>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="checkbox" />
-                  <StyledOptionBtn>Lorem, ipsum.</StyledOptionBtn>
-                </StyledDivLine>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="checkbox" />
-                  <StyledOptionBtn>Lorem, ipsum dolor.</StyledOptionBtn>
-                </StyledDivLine>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="checkbox" />
-                  <StyledOptionBtn>Lorem ipsum dolor sit.</StyledOptionBtn>
-                </StyledDivLine>
-                <StyledDivLine>
-                  <StyledCheckbox1 type="checkbox" />
-                  <StyledOptionBtn>Lorem ipsum dolor sit amet.</StyledOptionBtn>
-                </StyledDivLine>
+                {shuffledQuestionAnswers.map((answer) => {
+                  return (
+                    <StyledDivLine>
+                      <StyledCheckbox1 type="checkbox" name={question.questionId} id={answer} />
+                      <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
+                    </StyledDivLine>
+                  );
+                })}
                 <StyledNumberOfCorrectAnswer>რამდენიმე სწორი პასუხი</StyledNumberOfCorrectAnswer>
                 <StyledDltBtn1
                   onClick={() => {

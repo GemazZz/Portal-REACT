@@ -60,6 +60,18 @@ const TestCreation = (props) => {
   }
 
   const addQuestionFunc = () => {
+    if (category === "") {
+      alert("აირჩიეთ სპეციალობა");
+      return;
+    }
+    if (question === "") {
+      alert("ჩაწერეთ კითხვა");
+      return;
+    }
+    if (question === "") {
+      alert("ჩაწერეთ კითხვა");
+      return;
+    }
     addLocalStorage("questions", questionData);
     navigate("/" + urlAdmin);
     questionData = {};
