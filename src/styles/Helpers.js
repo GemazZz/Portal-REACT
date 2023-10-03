@@ -112,7 +112,7 @@ export const StyledQuestionLineDiv = styled.div`
   position: relative;
   background-color: rgb(157, 157, 157);
   width: 1100px;
-  margin: 10px;
+  margin: 12px;
   padding: 20px;
   padding-bottom: 40px;
   display: flex;

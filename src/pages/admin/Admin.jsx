@@ -4,6 +4,12 @@ import { StyledBody, StyledH1 } from "../../styles/Helpers";
 import { useNavigate } from "react-router-dom";
 
 const Admin = (props) => {
+  if (!localStorage.getItem("questions")) {
+    localStorage.setItem("questions", JSON.stringify([]));
+  }
+  if (!localStorage.getItem("special")) {
+    localStorage.setItem("special", JSON.stringify([]));
+  }
   const navigate = useNavigate();
   const getDataAdmin = props.dataAdmin;
   const urlAdmin = getDataAdmin();

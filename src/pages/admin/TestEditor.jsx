@@ -21,12 +21,6 @@ function shuffleArray(array) {
   return shuffledArray;
 }
 
-function questionArr(question, option, arr) {
-  if (question[option] !== undefined && question.option !== "") {
-    arr.push(question[option]);
-  }
-}
-
 const TestEditor = () => {
   const [currentSpecial, setCurrentSpecial] = useState("");
 
@@ -75,6 +69,7 @@ const TestEditor = () => {
             questionAnswers.push(question.fourthAnswer);
           }
           const shuffledQuestionAnswers = shuffleArray(questionAnswers);
+          console.log(shuffledQuestionAnswers);
           return (
             currentSpecial === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>
@@ -82,7 +77,7 @@ const TestEditor = () => {
                 {shuffledQuestionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
-                      <StyledCheckbox1 type="radio" name={question.questionId} id={answer} />
+                      <StyledCheckbox1 type="radio" name={question.questionId} id={answer} checked={question.correctAnswer === answer} />
                       <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
                     </StyledDivLine>
                   );
@@ -126,7 +121,17 @@ const TestEditor = () => {
                 {shuffledQuestionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
-                      <StyledCheckbox1 type="checkbox" name={question.questionId} id={answer} />
+                      <StyledCheckbox1
+                        type="checkbox"
+                        name={question.questionId}
+                        id={answer}
+                        checked={
+                          (question.firstAnswer === answer && question.checkFirstAnswer === true) ||
+                          (question.secondAnswer === answer && question.checkSecondAnswer === true) ||
+                          (question.thirdAnswer === answer && question.checkThirdAnswer === true) ||
+                          (question.fourthAnswer === answer && question.checkFourthAnswer === true)
+                        }
+                      />
                       <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
                     </StyledDivLine>
                   );
