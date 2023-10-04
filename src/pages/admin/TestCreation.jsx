@@ -92,7 +92,11 @@ const TestCreation = (props) => {
             სპეციალობა
           </option>
           {parseData.map((item) => {
-            return <option value={item}>{item}</option>;
+            return (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            );
           })}
         </StyledSelect>
         <StyledCheckbox type="checkbox" style={{ right: "450px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
