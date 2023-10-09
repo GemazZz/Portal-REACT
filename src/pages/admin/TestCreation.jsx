@@ -68,10 +68,6 @@ const TestCreation = (props) => {
       alert("ჩაწერეთ კითხვა");
       return;
     }
-    if (question === "") {
-      alert("ჩაწერეთ კითხვა");
-      return;
-    }
     addLocalStorage("questions", questionData);
     navigate("/" + urlAdmin);
     questionData = {};

@@ -14,11 +14,6 @@ import {
 } from "../../styles/Helpers";
 import { shuffleArray } from "../../helpers/Helpers";
 
-const testData = [
-  { firstName: "გოგა", lastName: "გემაზაშვილი", userId: 1234 },
-  { firstName: "ნიკა", lastName: "აბესაძე", userId: 2345 },
-];
-
 const User = () => {
   const [currentSpecial, setCurrentSpecial] = useState("");
 
@@ -33,7 +28,7 @@ const User = () => {
   });
 
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
-  const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
+  const multipleShuffledArr = shuffleArray(multipleAnswerQuestions); 
 
   return (
     <StyledBody>
