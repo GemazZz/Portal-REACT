@@ -8,7 +8,9 @@ const testData = [
   { firstName: "ნიკა", lastName: "აბესაძე", userId: 2345 },
 ];
 
-const User = () => {
+const User = (props) => {
+  const getDataUser = props.dataUser;
+  const newNumUser = getDataUser();
   const [userId, setUserId] = useState("");
   const foundUser = testData.find((user) => user.userId === parseInt(userId));
   const [currentSpecial, setCurrentSpecial] = useState("");
@@ -54,7 +56,7 @@ const User = () => {
             alert("აირჩიეთ სპეციალობა");
             return;
           }
-          navigate();
+          navigate("/" + newNumUser + "/" + userId + "/" + currentSpecial);
         }}
       >
         დაწყება

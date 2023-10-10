@@ -61,7 +61,6 @@ const TestEditor = () => {
             questionAnswers.push(question.fourthAnswer);
           }
           const shuffledQuestionAnswers = shuffleArray(questionAnswers);
-          console.log(shuffledQuestionAnswers);
           return (
             currentSpecial === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>

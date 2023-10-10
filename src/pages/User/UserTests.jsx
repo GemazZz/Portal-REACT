@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { StyledButton, StyledDltBtn1 } from "../../styles/Button";
 import {
   StyledBody,
   StyledCheckbox1,
@@ -10,15 +8,15 @@ import {
   StyledNumberOfCorrectAnswer,
   StyledOptionBtn,
   StyledQuestionLineDiv,
-  StyledSelect,
 } from "../../styles/Helpers";
 import { shuffleArray } from "../../helpers/Helpers";
+import { useParams } from "react-router-dom";
+import { StyledButton } from "../../styles/Button";
 
-const User = () => {
-  const [currentSpecial, setCurrentSpecial] = useState("");
-
-  const parseQuestionData = JSON.parse(localStorage.getItem("questions"));
-  const [questionData, setQuestionData] = useState(parseQuestionData);
+const UserTests = () => {
+  const currentSpecialParams = useParams().category;
+  const userId = useParams().userId;
+  const questionData = JSON.parse(localStorage.getItem("questions"));
 
   const singleAnswerQuestions = questionData.filter((item) => {
     return item.multipleAnswer === false;
@@ -28,11 +26,11 @@ const User = () => {
   });
 
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
-  const multipleShuffledArr = shuffleArray(multipleAnswerQuestions); 
+  const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
 
   return (
     <StyledBody>
-      <StyledH1>გისურვებთ წარმატებებს</StyledH1>
+      <StyledH1 size="large">გისურვებთ წარმატებებს!</StyledH1>
       {singleAnswerQuestions &&
         singleShuffledArr.map((question) => {
           let questionAnswers = [];
@@ -50,13 +48,13 @@ const User = () => {
           }
           const shuffledQuestionAnswers = shuffleArray(questionAnswers);
           return (
-            currentSpecial === question.category && (
+            currentSpecialParams === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>
                 <StyledLabel>{question.question}</StyledLabel>
                 {shuffledQuestionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
-                      <StyledCheckbox1 type="radio" name={question.questionId} value={answer} />
+                      <StyledCheckbox1 type="radio" name={question.questionId} value={answer} id={answer} />
                       <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
                     </StyledDivLine>
                   );
@@ -83,13 +81,13 @@ const User = () => {
           }
           const shuffledQuestionAnswers = shuffleArray(questionAnswers);
           return (
-            currentSpecial === question.category && (
+            currentSpecialParams === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>
                 <StyledLabel>{question.question}</StyledLabel>
                 {shuffledQuestionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
-                      <StyledCheckbox1 type="checkbox" name={question.questionId} value={answer} />
+                      <StyledCheckbox1 type="checkbox" name={question.questionId} value={answer} id={answer} />
                       <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
                     </StyledDivLine>
                   );
@@ -99,8 +97,11 @@ const User = () => {
             )
           );
         })}
+      <StyledButton size="large" marg="large">
+        დასრულება
+      </StyledButton>
     </StyledBody>
   );
 };
 
-export default User;
+export default UserTests;

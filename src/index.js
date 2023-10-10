@@ -13,6 +13,7 @@ import TestEditor from "./pages/Admin/TestEditor";
 import Stats from "./pages/Admin/Stats";
 import SpecialEditor from "./pages/Admin/SpecialEditor";
 import User from "./pages/User/User";
+import UserTests from "./pages/User/UserTests";
 
 let newDate = new Date().getDate() + 11;
 if (newDate < 22) {
@@ -75,15 +76,15 @@ const router = createBrowserRouter([
   },
   {
     path: "/" + newNumUser,
-    element: <User />,
+    element: <User dataUser={dataUser} />,
   },
   {
-    path: "/" + newNumUser,
-    element: <User />,
+    path: "/" + newNumUser + "/:userId" + "/:category",
+    element: <UserTests />,
   },
   {
     path: "*",
-    element: <div>Not found</div>,
+    element: <div>Wrong Path</div>,
   },
 ]);
 

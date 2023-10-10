@@ -147,4 +147,7 @@ export const StyledOptionBtn = styled.label`
   border-radius: 15px;
   border: 1px solid black;
   font-family: "Times New Roman", Times, serif;
+  &:hover {
+    scale: 1.02;
+  }
 `;
