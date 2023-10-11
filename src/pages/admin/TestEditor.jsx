@@ -11,7 +11,7 @@ import {
   StyledSelect,
 } from "../../styles/Helpers";
 import { StyledDltBtn1 } from "../../styles/Button";
-import { questionMultiStructure, questionSingleStructure, shuffleArray } from "../../helpers/Helpers";
+import { questionMultiStructure, questionSingleStructure } from "../../helpers/Helpers";
 
 const TestEditor = () => {
   const [currentSpecial, setCurrentSpecial] = useState("");

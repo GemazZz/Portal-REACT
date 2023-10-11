@@ -11,7 +11,7 @@ export const StyledButton = styled.button`
   font-weight: ${(prop) => (prop.size === "large" ? "800" : "600")};
   font-size: ${(prop) => (prop.size === "large" ? "26px" : "20px")};
   margin-top: ${(prop) => (prop.size === "large" ? "15px" : "8px")};
-  margin-bottom: ${(prop) => (prop.marg === "large" ? "150px" : "0px")};
+  margin-bottom: ${(prop) => (prop.margin === "large" ? "150px" : "0px")};
   &:hover {
     scale: 1.07;
   }

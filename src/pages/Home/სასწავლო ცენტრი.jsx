@@ -4,6 +4,10 @@ import { useState } from "react";
 import { StyledButton } from "../../styles/Button";
 import BackBtn from "../../components/BackBtn";
 
+if (!localStorage.getItem("usersAnswers")) {
+  localStorage.setItem("usersAnswers", JSON.stringify([]));
+}
+
 const TestCenter = (props) => {
   const [password, setPassword] = useState("");
   const getDataAdmin = props.dataAdmin;

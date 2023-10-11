@@ -9,10 +9,12 @@ import {
   StyledQuestionLineDiv,
 } from "../../styles/Helpers";
 import { questionSingleStructure, questionMultiStructure, shuffleArray } from "../../helpers/Helpers";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
+import { useState } from "react";
 
 const UserTests = () => {
+  const navigate = useNavigate();
   const currentSpecialParams = useParams().category;
   const userId = useParams().userId;
   const questionData = JSON.parse(localStorage.getItem("questions"));
@@ -26,7 +28,10 @@ const UserTests = () => {
 
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
   const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
-
+  const parseUsersAnswers = JSON.parse(localStorage.getItem("usersAnswers"));
+  const [usersAnswers, setUsersAnswers] = useState(parseUsersAnswers);
+  console.log(usersAnswers);
+  let userAnswers = { userId };
   return (
     <StyledBody>
       <StyledH1 size="large">გისურვებთ წარმატებებს!</StyledH1>
@@ -41,8 +46,20 @@ const UserTests = () => {
                 {shuffledQuestionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
-                      <StyledCheckbox1 type="radio" name={question.questionId} value={answer} id={answer} />
-                      <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
+                      <StyledCheckbox1
+                        type="radio"
+                        name={question.questionId}
+                        value={answer}
+                        id={answer}
+                        onChange={(e) => {
+                          if (!userAnswers[question.questionId]) {
+                            userAnswers[question.questionId] = answer;
+                          } else {
+                            userAnswers[question.questionId] = answer;
+                          }
+                        }}
+                      />
+                      <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
                     </StyledDivLine>
                   );
                 })}
@@ -63,7 +80,7 @@ const UserTests = () => {
                   return (
                     <StyledDivLine>
                       <StyledCheckbox1 type="checkbox" name={question.questionId} value={answer} id={answer} />
-                      <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
+                      <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
                     </StyledDivLine>
                   );
                 })}
@@ -72,7 +89,14 @@ const UserTests = () => {
             )
           );
         })}
-      <StyledButton size="large" marg="large">
+      <StyledButton
+        size="large"
+        margin="large"
+        onClick={() => {
+          localStorage.setItem("usersAnswers", JSON.stringify([...usersAnswers, userAnswers]));
+          navigate("/54875873555");
+        }}
+      >
         დასრულება
       </StyledButton>
     </StyledBody>
