@@ -3,13 +3,12 @@ import {
   StyledCheckbox1,
   StyledDivLine,
   StyledH1,
-  StyledInput,
   StyledLabel,
   StyledNumberOfCorrectAnswer,
   StyledOptionBtn,
   StyledQuestionLineDiv,
 } from "../../styles/Helpers";
-import { shuffleArray } from "../../helpers/Helpers";
+import { questionSingleStructure, questionMultiStructure, shuffleArray } from "../../helpers/Helpers";
 import { useParams } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
 
@@ -33,19 +32,7 @@ const UserTests = () => {
       <StyledH1 size="large">გისურვებთ წარმატებებს!</StyledH1>
       {singleAnswerQuestions &&
         singleShuffledArr.map((question) => {
-          let questionAnswers = [];
-          if (question.correctAnswer !== undefined && question.correctAnswer !== "") {
-            questionAnswers.push(question.correctAnswer);
-          }
-          if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
-            questionAnswers.push(question.secondAnswer);
-          }
-          if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
-            questionAnswers.push(question.thirdAnswer);
-          }
-          if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
-            questionAnswers.push(question.fourthAnswer);
-          }
+          const questionAnswers = questionSingleStructure(question);
           const shuffledQuestionAnswers = shuffleArray(questionAnswers);
           return (
             currentSpecialParams === question.category && (
@@ -66,19 +53,7 @@ const UserTests = () => {
         })}
       {multipleAnswerQuestions &&
         multipleShuffledArr.map((question) => {
-          let questionAnswers = [];
-          if (question.firstAnswer !== undefined && question.firstAnswer !== "") {
-            questionAnswers.push(question.firstAnswer);
-          }
-          if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
-            questionAnswers.push(question.secondAnswer);
-          }
-          if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
-            questionAnswers.push(question.thirdAnswer);
-          }
-          if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
-            questionAnswers.push(question.fourthAnswer);
-          }
+          const questionAnswers = questionMultiStructure(question);
           const shuffledQuestionAnswers = shuffleArray(questionAnswers);
           return (
             currentSpecialParams === question.category && (

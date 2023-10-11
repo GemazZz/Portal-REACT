@@ -12,3 +12,37 @@ export const shuffleArray = (array) => {
   }
   return shuffledArray;
 };
+
+export const questionSingleStructure = (question) => {
+  let questionAnswers = [];
+  if (question.correctAnswer !== undefined && question.correctAnswer !== "") {
+    questionAnswers.push(question.correctAnswer);
+  }
+  if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
+    questionAnswers.push(question.secondAnswer);
+  }
+  if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
+    questionAnswers.push(question.thirdAnswer);
+  }
+  if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
+    questionAnswers.push(question.fourthAnswer);
+  }
+  return questionAnswers;
+};
+
+export const questionMultiStructure = (question) => {
+  let questionAnswers = [];
+  if (question.firstAnswer !== undefined && question.firstAnswer !== "") {
+    questionAnswers.push(question.firstAnswer);
+  }
+  if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
+    questionAnswers.push(question.secondAnswer);
+  }
+  if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
+    questionAnswers.push(question.thirdAnswer);
+  }
+  if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
+    questionAnswers.push(question.fourthAnswer);
+  }
+  return questionAnswers;
+};

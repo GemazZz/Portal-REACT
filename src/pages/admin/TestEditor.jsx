@@ -11,7 +11,7 @@ import {
   StyledSelect,
 } from "../../styles/Helpers";
 import { StyledDltBtn1 } from "../../styles/Button";
-import { shuffleArray } from "../../helpers/Helpers";
+import { questionMultiStructure, questionSingleStructure, shuffleArray } from "../../helpers/Helpers";
 
 const TestEditor = () => {
   const [currentSpecial, setCurrentSpecial] = useState("");
@@ -26,9 +26,6 @@ const TestEditor = () => {
   const multipleAnswerQuestions = questionData.filter((item) => {
     return item.multipleAnswer === true;
   });
-
-  const singleShuffledArr = shuffleArray(singleAnswerQuestions);
-  const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
 
   return (
     <StyledBody>
@@ -46,26 +43,13 @@ const TestEditor = () => {
         })}
       </StyledSelect>
       {singleAnswerQuestions &&
-        singleShuffledArr.map((question) => {
-          let questionAnswers = [];
-          if (question.correctAnswer !== undefined && question.correctAnswer !== "") {
-            questionAnswers.push(question.correctAnswer);
-          }
-          if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
-            questionAnswers.push(question.secondAnswer);
-          }
-          if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
-            questionAnswers.push(question.thirdAnswer);
-          }
-          if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
-            questionAnswers.push(question.fourthAnswer);
-          }
-          const shuffledQuestionAnswers = shuffleArray(questionAnswers);
+        singleAnswerQuestions.map((question) => {
+          const questionAnswers = questionSingleStructure(question);
           return (
             currentSpecial === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>
                 <StyledLabel>{question.question}</StyledLabel>
-                {shuffledQuestionAnswers.map((answer) => {
+                {questionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
                       <StyledCheckbox1 type="radio" name={question.questionId} id={answer} checked={question.correctAnswer === answer} />
@@ -90,26 +74,13 @@ const TestEditor = () => {
           );
         })}
       {multipleAnswerQuestions &&
-        multipleShuffledArr.map((question) => {
-          let questionAnswers = [];
-          if (question.firstAnswer !== undefined && question.firstAnswer !== "") {
-            questionAnswers.push(question.firstAnswer);
-          }
-          if (question.secondAnswer !== undefined && question.secondAnswer !== "") {
-            questionAnswers.push(question.secondAnswer);
-          }
-          if (question.thirdAnswer !== undefined && question.thirdAnswer !== "") {
-            questionAnswers.push(question.thirdAnswer);
-          }
-          if (question.fourthAnswer !== undefined && question.fourthAnswer !== "") {
-            questionAnswers.push(question.fourthAnswer);
-          }
-          const shuffledQuestionAnswers = shuffleArray(questionAnswers);
+        multipleAnswerQuestions.map((question) => {
+          const questionAnswers = questionMultiStructure(question);
           return (
             currentSpecial === question.category && (
               <StyledQuestionLineDiv key={question.questionId}>
                 <StyledLabel>{question.question}</StyledLabel>
-                {shuffledQuestionAnswers.map((answer) => {
+                {questionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
                       <StyledCheckbox1
