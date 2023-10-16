@@ -11,7 +11,6 @@ import {
 import { questionSingleStructure, questionMultiStructure, shuffleArray } from "../../helpers/Helpers";
 import { useNavigate, useParams } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
-import { useState } from "react";
 
 const UserTests = () => {
   const navigate = useNavigate();
@@ -28,8 +27,7 @@ const UserTests = () => {
 
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
   const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
-  const parseUsersAnswers = JSON.parse(localStorage.getItem("usersAnswers") || []);
-  const [usersAnswers, setUsersAnswers] = useState(parseUsersAnswers);
+  const usersAnswers = JSON.parse(localStorage.getItem("usersAnswers") || []);
   let userAnswers = { userId };
   return (
     <StyledBody>

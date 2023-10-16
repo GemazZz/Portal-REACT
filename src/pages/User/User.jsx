@@ -48,15 +48,7 @@ const User = (props) => {
       </StyledSelect>
       <StyledButton
         onClick={() => {
-          if (!foundUser) {
-            alert("შეიყვანეთ საიდენტიფიკაციო კოდი სწორად");
-            return;
-          }
-          if (!currentSpecial || currentSpecial === "#") {
-            alert("აირჩიეთ სპეციალობა");
-            return;
-          }
-          navigate("/" + newNumUser + "/" + userId + "/" + currentSpecial);
+          validateInput();
         }}
       >
         დაწყება
