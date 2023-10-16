@@ -46,15 +46,3 @@ export const questionMultiStructure = (question) => {
   }
   return questionAnswers;
 };
-
-export const validateInput = () => {
-  if (!foundUser) {
-    alert("შეიყვანეთ საიდენტიფიკაციო კოდი სწორად");
-    return;
-  }
-  if (!currentSpecial || currentSpecial === "#") {
-    alert("აირჩიეთ სპეციალობა");
-    return;
-  }
-  navigate("/" + newNumUser + "/" + userId + "/" + currentSpecial);
-};
