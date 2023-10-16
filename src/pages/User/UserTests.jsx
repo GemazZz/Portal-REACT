@@ -114,7 +114,7 @@ const UserTests = () => {
         onClick={() => {
           const updatedUserAnswers = [...usersAnswers, userAnswers];
           localStorage.setItem("usersAnswers", JSON.stringify(updatedUserAnswers));
-          // navigate("/54875873555");
+          navigate("/");
         }}
       >
         დასრულება
