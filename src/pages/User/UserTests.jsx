@@ -28,9 +28,8 @@ const UserTests = () => {
 
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
   const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
-  const parseUsersAnswers = JSON.parse(localStorage.getItem("usersAnswers"));
+  const parseUsersAnswers = JSON.parse(localStorage.getItem("usersAnswers") || []);
   const [usersAnswers, setUsersAnswers] = useState(parseUsersAnswers);
-  console.log(usersAnswers);
   let userAnswers = { userId };
   return (
     <StyledBody>
@@ -51,7 +50,7 @@ const UserTests = () => {
                         name={question.questionId}
                         value={answer}
                         id={answer}
-                        onChange={(e) => {
+                        onChange={() => {
                           if (!userAnswers[question.questionId]) {
                             userAnswers[question.questionId] = answer;
                           } else {
@@ -79,7 +78,27 @@ const UserTests = () => {
                 {shuffledQuestionAnswers.map((answer) => {
                   return (
                     <StyledDivLine>
-                      <StyledCheckbox1 type="checkbox" name={question.questionId} value={answer} id={answer} />
+                      <StyledCheckbox1
+                        type="checkbox"
+                        name={question.questionId}
+                        value={answer}
+                        id={answer}
+                        onClick={() => {
+                          if (!userAnswers[question.questionId]) {
+                            userAnswers[question.questionId] = [answer];
+                          } else {
+                            const index = userAnswers[question.questionId].indexOf(answer);
+                            if (index === -1) {
+                              userAnswers[question.questionId].push(answer);
+                            } else {
+                              userAnswers[question.questionId].splice(index, 1);
+                            }
+                          }
+                          if (userAnswers[question.questionId].length === 0) {
+                            delete userAnswers[question.questionId];
+                          }
+                        }}
+                      />
                       <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
                     </StyledDivLine>
                   );
@@ -93,8 +112,9 @@ const UserTests = () => {
         size="large"
         margin="large"
         onClick={() => {
-          localStorage.setItem("usersAnswers", JSON.stringify([...usersAnswers, userAnswers]));
-          navigate("/54875873555");
+          const updatedUserAnswers = [...usersAnswers, userAnswers];
+          localStorage.setItem("usersAnswers", JSON.stringify(updatedUserAnswers));
+          // navigate("/54875873555");
         }}
       >
         დასრულება
