@@ -8,22 +8,20 @@ if (!localStorage.getItem("usersAnswers")) {
   localStorage.setItem("usersAnswers", JSON.stringify([]));
 }
 
-const TestCenter = (props) => {
+const TestCenter = () => {
+  sessionStorage.removeItem("accessToken");
   const [password, setPassword] = useState("");
-  const getDataAdmin = props.dataAdmin;
-  const urlAdmin = getDataAdmin();
-  const getDataUser = props.dataUser;
-  const urlUser = getDataUser();
   const navigate = useNavigate();
   const passwordChange = (e) => {
     setPassword(e.target.value);
   };
   const submit = () => {
     if (password === "123") {
-      navigate("/" + urlUser);
+      sessionStorage.setItem("accessToken", JSON.stringify("user"));
+      navigate("/user");
     } else if (password === "234") {
-      window.open("http://192.168.101.30:3000/" + urlAdmin, "_blank");
-      navigate("/");
+      sessionStorage.setItem("accessToken", JSON.stringify("admin"));
+      navigate("/admin");
     } else {
       alert("პაროლი არასწორია!");
       return;

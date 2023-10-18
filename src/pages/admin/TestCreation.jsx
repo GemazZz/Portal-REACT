@@ -3,14 +3,14 @@ import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledLabel, StyledSelect, StyledTextArea, StyledCheckbox, StyledFile } from "../../styles/Helpers";
 import { useState } from "react";
 import { addLocalStorage } from "../../helpers/Helpers";
+import BackBtn from "../../components/BackBtn";
 
-const TestCreation = (props) => {
+const TestCreation = () => {
   if (!localStorage.getItem("questions")) {
     localStorage.setItem("questions", JSON.stringify([]));
   }
   const navigate = useNavigate();
-  const getDataAdmin = props.dataAdmin;
-  const urlAdmin = getDataAdmin();
+  const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
   const [question, setQuestion] = useState("");
   const [multipleAnswer, setMultipleAnswer] = useState(false);
@@ -69,132 +69,142 @@ const TestCreation = (props) => {
       return;
     }
     addLocalStorage("questions", questionData);
-    navigate("/" + urlAdmin);
+    navigate("/admin");
     questionData = {};
   };
 
   return (
     <StyledBody>
-      <StyledH1 size="large" style={{ marginTop: "30px" }}>
-        ტესტის შექმნა
-      </StyledH1>
-      <div>
-        <StyledSelect
-          onChange={(e) => {
-            setCategory(e.target.value);
-          }}
-        >
-          <option value="#" selected>
-            სპეციალობა
-          </option>
-          {parseData.map((item) => {
-            return (
-              <option value={item} key={item}>
-                {item}
+      {accessToken && (
+        <>
+          <StyledH1 size="large" style={{ marginTop: "30px" }}>
+            ტესტის შექმნა
+          </StyledH1>
+          <div>
+            <StyledSelect
+              onChange={(e) => {
+                setCategory(e.target.value);
+              }}
+            >
+              <option value="#" selected>
+                სპეციალობა
               </option>
-            );
-          })}
-        </StyledSelect>
-        <StyledCheckbox type="checkbox" style={{ right: "450px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
-        <StyledLabel style={{ position: "absolute", right: "80px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
-      </div>
-      <div>
-        <StyledLabel>აირჩიეთ ფოტო: </StyledLabel>
-        <StyledFile type="file" />
-      </div>
-      <StyledTextArea
-        size="large"
-        placeholder="შეკითხვის ადგილი"
-        value={question}
-        onChange={(e) => {
-          setQuestion(e.target.value);
-        }}
-      />
-      <div>
-        {!multipleAnswer && (
-          <>
-            <StyledLabel>პასუხი 1:</StyledLabel>
+              {parseData.map((item) => {
+                return (
+                  <option value={item} key={item}>
+                    {item}
+                  </option>
+                );
+              })}
+            </StyledSelect>
+            <StyledCheckbox type="checkbox" style={{ right: "450px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
+            <StyledLabel style={{ position: "absolute", right: "80px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
+          </div>
+          <div>
+            <StyledLabel>აირჩიეთ ფოტო: </StyledLabel>
+            <StyledFile type="file" />
+          </div>
+          <StyledTextArea
+            size="large"
+            placeholder="შეკითხვის ადგილი"
+            value={question}
+            onChange={(e) => {
+              setQuestion(e.target.value);
+            }}
+          />
+          <div>
+            {!multipleAnswer && (
+              <>
+                <StyledLabel>პასუხი 1:</StyledLabel>
+                <StyledInput
+                  placeholder="სწორი პასუხი"
+                  value={correctAnswer}
+                  onChange={(e) => {
+                    setCorrectAnswer(e.target.value);
+                  }}
+                />
+              </>
+            )}
+            {multipleAnswer && (
+              <>
+                <StyledLabel>პასუხი 1:</StyledLabel>
+                <StyledInput
+                  value={firstAnswer}
+                  onChange={(e) => {
+                    setFirstAnswer(e.target.value);
+                  }}
+                />
+                <StyledCheckbox
+                  type="checkbox"
+                  onChange={() => {
+                    setCheckFirstAnswer(!checkFirstAnswer);
+                  }}
+                />
+              </>
+            )}
+          </div>
+          <div>
+            <StyledLabel>პასუხი 2:</StyledLabel>
             <StyledInput
-              placeholder="სწორი პასუხი"
-              value={correctAnswer}
+              value={secondAnswer}
               onChange={(e) => {
-                setCorrectAnswer(e.target.value);
+                setSecondAnswer(e.target.value);
               }}
             />
-          </>
-        )}
-        {multipleAnswer && (
-          <>
-            <StyledLabel>პასუხი 1:</StyledLabel>
+            {multipleAnswer && (
+              <StyledCheckbox
+                type="checkbox"
+                onChange={() => {
+                  setCheckSecondAnswer(!checkSecondAnswer);
+                }}
+              />
+            )}
+          </div>
+          <div>
+            <StyledLabel>პასუხი 3:</StyledLabel>
             <StyledInput
-              value={firstAnswer}
+              value={thirdAnswer}
               onChange={(e) => {
-                setFirstAnswer(e.target.value);
+                setThirdAnswer(e.target.value);
               }}
             />
-            <StyledCheckbox
-              type="checkbox"
-              onChange={() => {
-                setCheckFirstAnswer(!checkFirstAnswer);
+            {multipleAnswer && (
+              <StyledCheckbox
+                type="checkbox"
+                onChange={() => {
+                  setCheckThirdAnswer(!checkThirdAnswer);
+                }}
+              />
+            )}
+          </div>
+          <div>
+            <StyledLabel>პასუხი 4:</StyledLabel>
+            <StyledInput
+              value={fourthAnswer}
+              onChange={(e) => {
+                setFourthAnswer(e.target.value);
               }}
             />
-          </>
-        )}
-      </div>
-      <div>
-        <StyledLabel>პასუხი 2:</StyledLabel>
-        <StyledInput
-          value={secondAnswer}
-          onChange={(e) => {
-            setSecondAnswer(e.target.value);
-          }}
-        />
-        {multipleAnswer && (
-          <StyledCheckbox
-            type="checkbox"
-            onChange={() => {
-              setCheckSecondAnswer(!checkSecondAnswer);
-            }}
-          />
-        )}
-      </div>
-      <div>
-        <StyledLabel>პასუხი 3:</StyledLabel>
-        <StyledInput
-          value={thirdAnswer}
-          onChange={(e) => {
-            setThirdAnswer(e.target.value);
-          }}
-        />
-        {multipleAnswer && (
-          <StyledCheckbox
-            type="checkbox"
-            onChange={() => {
-              setCheckThirdAnswer(!checkThirdAnswer);
-            }}
-          />
-        )}
-      </div>
-      <div>
-        <StyledLabel>პასუხი 4:</StyledLabel>
-        <StyledInput
-          value={fourthAnswer}
-          onChange={(e) => {
-            setFourthAnswer(e.target.value);
-          }}
-        />
-        {multipleAnswer && (
-          <StyledCheckbox
-            type="checkbox"
-            onChange={() => {
-              setCheckFourthAnswer(!checkFourthAnswer);
-            }}
-          />
-        )}
-      </div>
-      <StyledButton size="large" onClick={() => addQuestionFunc()}>
-        დამატება
-      </StyledButton>
+            {multipleAnswer && (
+              <StyledCheckbox
+                type="checkbox"
+                onChange={() => {
+                  setCheckFourthAnswer(!checkFourthAnswer);
+                }}
+              />
+            )}
+          </div>
+          <StyledButton size="large" onClick={() => addQuestionFunc()}>
+            დამატება
+          </StyledButton>
+        </>
+      )}
+      {!accessToken && (
+        <>
+          <BackBtn />
+          <StyledH1>ERROR 403: Access Denied</StyledH1>
+        </>
+      )}
     </StyledBody>
   );
 };

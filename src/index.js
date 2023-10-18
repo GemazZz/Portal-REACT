@@ -16,24 +16,6 @@ import User from "./pages/User/User";
 import UserTests from "./pages/User/UserTests";
 import ErrorPage from "./pages/Home/ErrorPage";
 
-let newDate = new Date().getDate() + 11;
-if (newDate < 22) {
-  newDate = newDate + 20;
-}
-if (newDate % 10 === 0) {
-  newDate += 1;
-}
-const newNumAdmin = newDate ** 9 + 11;
-const newNumUser = newDate ** 8 + 19;
-const dataAdmin = () => {
-  const urlAdmin = newNumAdmin;
-  return urlAdmin;
-};
-const dataUser = () => {
-  const urlUser = newNumUser;
-  return urlUser;
-};
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,38 +31,38 @@ const router = createBrowserRouter([
   },
   {
     path: "/testcenter",
-    element: <TestCenter dataAdmin={dataAdmin} dataUser={dataUser} />,
+    element: <TestCenter />,
   },
   {
     path: "/others",
     element: <Others />,
   },
   {
-    path: "/" + newNumAdmin,
-    element: <Admin dataAdmin={dataAdmin} />,
+    path: "/admin",
+    element: <Admin />,
   },
   {
-    path: "/" + newNumAdmin + "/testcreation",
-    element: <TestCreation dataAdmin={dataAdmin} />,
+    path: "/admin/testcreation",
+    element: <TestCreation />,
   },
   {
-    path: "/" + newNumAdmin + "/testeditor",
-    element: <TestEditor dataAdmin={dataAdmin} />,
+    path: "/admin/testeditor",
+    element: <TestEditor />,
   },
   {
-    path: "/" + newNumAdmin + "/specialeditor",
-    element: <SpecialEditor dataAdmin={dataAdmin} />,
+    path: "/admin/specialeditor",
+    element: <SpecialEditor />,
   },
   {
-    path: "/" + newNumAdmin + "/stats",
-    element: <Stats dataAdmin={dataAdmin} />,
+    path: "/admin/stats",
+    element: <Stats />,
   },
   {
-    path: "/" + newNumUser,
-    element: <User dataUser={dataUser} />,
+    path: "/user",
+    element: <User />,
   },
   {
-    path: "/" + newNumUser + "/:userId" + "/:category",
+    path: "/user/:userId/:category",
     element: <UserTests />,
   },
   {

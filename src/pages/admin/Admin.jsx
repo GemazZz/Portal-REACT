@@ -1,9 +1,9 @@
-import CloseBtn from "../../components/CloseBtn";
+import BackBtn from "../../components/BackBtn";
 import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1 } from "../../styles/Helpers";
 import { useNavigate } from "react-router-dom";
 
-const Admin = (props) => {
+const Admin = () => {
   if (!localStorage.getItem("questions")) {
     localStorage.setItem("questions", JSON.stringify([]));
   }
@@ -11,26 +11,30 @@ const Admin = (props) => {
     localStorage.setItem("special", JSON.stringify([]));
   }
   const navigate = useNavigate();
-  const getDataAdmin = props.dataAdmin;
-  const urlAdmin = getDataAdmin();
+
+  const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
   return (
     <StyledBody>
-      <CloseBtn />
-      <StyledH1 size="large">ადმინისტრაცია</StyledH1>
-      <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/testcreation")}>
-        ტესტების შედგენა
-      </StyledButton>
-      <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/testeditor")}>
-        ტესტების რედაქტირება
-      </StyledButton>
-      <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/specialeditor")}>
-        სპეციალობების რედაქტირება
-      </StyledButton>
-      <StyledButton size="large" onClick={() => navigate("/" + urlAdmin + "/stats")}>
-        სტატისტიკის ნახვა
-      </StyledButton>
+      <BackBtn />
+      {accessToken && (
+        <>
+          <StyledH1 size="large">ადმინისტრაცია</StyledH1>
+          <StyledButton size="large" onClick={() => navigate("/admin/testcreation")}>
+            ტესტების შედგენა
+          </StyledButton>
+          <StyledButton size="large" onClick={() => navigate("/admin/testeditor")}>
+            ტესტების რედაქტირება
+          </StyledButton>
+          <StyledButton size="large" onClick={() => navigate("/admin/specialeditor")}>
+            სპეციალობების რედაქტირება
+          </StyledButton>
+          <StyledButton size="large" onClick={() => navigate("/admin/stats")}>
+            სტატისტიკის ნახვა
+          </StyledButton>
+        </>
+      )}
+      {!accessToken && <StyledH1>ERROR 403: Access Denied</StyledH1>}
     </StyledBody>
   );
 };
-
 export default Admin;

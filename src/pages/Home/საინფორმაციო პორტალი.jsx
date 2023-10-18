@@ -6,6 +6,7 @@ function Starter() {
   if (!localStorage.getItem("special")) {
     localStorage.setItem("special", JSON.stringify([]));
   }
+  sessionStorage.removeItem("accessToken");
   const navigate = useNavigate();
   return (
     <StyledBody>

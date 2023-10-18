@@ -1,66 +1,72 @@
 import { useState } from "react";
-import { StyledButton, StyledDltBtn1 } from "../../styles/Button";
+import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledSelect } from "../../styles/Helpers";
 import { useNavigate } from "react-router-dom";
+import BackBtn from "../../components/BackBtn";
 
 const testData = [
   { firstName: "გოგა", lastName: "გემაზაშვილი", userId: 1234 },
   { firstName: "ნიკა", lastName: "აბესაძე", userId: 2345 },
 ];
 
-const User = (props) => {
-  const getDataUser = props.dataUser;
-  const newNumUser = getDataUser();
+const User = () => {
   const [userId, setUserId] = useState("");
   const foundUser = testData.find((user) => user.userId === parseInt(userId));
   const [currentSpecial, setCurrentSpecial] = useState("");
   const parseSpecialData = JSON.parse(localStorage.getItem("special"));
   const navigate = useNavigate();
+  const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
   return (
     <StyledBody>
-      <StyledH1 size="large">მომხმარებელი</StyledH1>
-      {foundUser ? (
-        <StyledH1 size="small">
-          {foundUser.firstName}
-          <span> </span>
-          {foundUser.lastName}
-        </StyledH1>
-      ) : (
-        <StyledH1 size="small">შეიყვანეთ საიდენტიფიკაციო კოდი სწორად</StyledH1>
+      <BackBtn />
+      {accessToken && (
+        <>
+          <StyledH1 size="large">მომხმარებელი</StyledH1>
+          {foundUser ? (
+            <StyledH1 size="small">
+              {foundUser.firstName}
+              <span> </span>
+              {foundUser.lastName}
+            </StyledH1>
+          ) : (
+            <StyledH1 size="small">შეიყვანეთ საიდენტიფიკაციო კოდი სწორად</StyledH1>
+          )}
+          <StyledInput
+            type="number"
+            onChange={(e) => {
+              setUserId(e.target.value);
+            }}
+          />
+          <StyledSelect
+            onChange={(e) => {
+              setCurrentSpecial(e.target.value);
+            }}
+          >
+            <option value="#" selected>
+              სპეციალობა
+            </option>
+            {parseSpecialData.map((item) => {
+              return <option value={item}>{item}</option>;
+            })}
+          </StyledSelect>
+          <StyledButton
+            onClick={() => {
+              if (!foundUser) {
+                alert("შეიყვანეთ საიდენტიფიკაციო კოდი სწორად");
+                return;
+              }
+              if (!currentSpecial || currentSpecial === "#") {
+                alert("აირჩიეთ სპეციალობა");
+                return;
+              }
+              navigate("/user/" + userId + "/" + currentSpecial);
+            }}
+          >
+            დაწყება
+          </StyledButton>
+        </>
       )}
-      <StyledInput
-        type="number"
-        onChange={(e) => {
-          setUserId(e.target.value);
-        }}
-      />
-      <StyledSelect
-        onChange={(e) => {
-          setCurrentSpecial(e.target.value);
-        }}
-      >
-        <option value="#" selected>
-          სპეციალობა
-        </option>
-        {parseSpecialData.map((item) => {
-          return <option value={item}>{item}</option>;
-        })}
-      </StyledSelect>
-      <StyledButton
-        onClick={() => {
-          if (!foundUser) {
-            alert("შეიყვანეთ საიდენტიფიკაციო კოდი სწორად");
-            return;
-          }
-          if (!currentSpecial || currentSpecial === "#") {
-            alert("აირჩიეთ სპეციალობა");
-            return;
-          }
-          navigate("/" + newNumUser + "/" + userId + "/" + currentSpecial);
-        }}
-      >
-        დაწყება
-      </StyledButton>
+      {!accessToken && <StyledH1>ERROR 403: Access Denied</StyledH1>}
     </StyledBody>
   );
 };
