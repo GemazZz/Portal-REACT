@@ -75,7 +75,7 @@ const TestCreation = () => {
 
   return (
     <StyledBody>
-      {accessToken && (
+      {accessToken === "admin" && (
         <>
           <StyledH1 size="large" style={{ marginTop: "30px" }}>
             ტესტის შექმნა
@@ -199,7 +199,7 @@ const TestCreation = () => {
           </StyledButton>
         </>
       )}
-      {!accessToken && (
+      {accessToken !== "admin" && (
         <>
           <BackBtn />
           <StyledH1>ERROR 403: Access Denied</StyledH1>

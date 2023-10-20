@@ -19,7 +19,7 @@ const User = () => {
   return (
     <StyledBody>
       <BackBtn />
-      {accessToken && (
+      {accessToken === "user" && (
         <>
           <StyledH1 size="large">მომხმარებელი</StyledH1>
           {foundUser ? (
@@ -66,7 +66,7 @@ const User = () => {
           </StyledButton>
         </>
       )}
-      {!accessToken && <StyledH1>ERROR 403: Access Denied</StyledH1>}
+      {accessToken !== "user" && <StyledH1>ERROR 403: Access Denied</StyledH1>}
     </StyledBody>
   );
 };

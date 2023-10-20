@@ -22,7 +22,7 @@ const SpecialEditor = () => {
 
   return (
     <StyledBody>
-      {accessToken && (
+      {accessToken === "admin" && (
         <>
           <StyledForm>
             <StyledH1>ახალი სპეციალობა</StyledH1>
@@ -63,8 +63,8 @@ const SpecialEditor = () => {
             );
           })}
         </>
-      )}{" "}
-      {!accessToken && (
+      )}
+      {accessToken !== "admin" && (
         <>
           <BackBtn />
           <StyledH1>ERROR 403: Access Denied</StyledH1>

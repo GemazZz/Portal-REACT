@@ -31,7 +31,7 @@ const TestEditor = () => {
 
   return (
     <StyledBody>
-      {accessToken && (
+      {accessToken === "admin" && (
         <>
           <StyledH1>ტესტის რედაქტირება</StyledH1>
           <StyledSelect
@@ -120,7 +120,7 @@ const TestEditor = () => {
             })}
         </>
       )}
-      {!accessToken && (
+      {accessToken !== "admin" && (
         <>
           <BackBtn />
           <StyledH1>ERROR 403: Access Denied</StyledH1>

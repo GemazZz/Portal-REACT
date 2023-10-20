@@ -16,7 +16,7 @@ const Admin = () => {
   return (
     <StyledBody>
       <BackBtn />
-      {accessToken && (
+      {accessToken === "admin" && (
         <>
           <StyledH1 size="large">ადმინისტრაცია</StyledH1>
           <StyledButton size="large" onClick={() => navigate("/admin/testcreation")}>
@@ -33,7 +33,7 @@ const Admin = () => {
           </StyledButton>
         </>
       )}
-      {!accessToken && <StyledH1>ERROR 403: Access Denied</StyledH1>}
+      {accessToken !== "admin" && <StyledH1>ERROR 403: Access Denied</StyledH1>}
     </StyledBody>
   );
 };
