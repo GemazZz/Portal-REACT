@@ -97,7 +97,7 @@ const TestCreation = () => {
                 );
               })}
             </StyledSelect>
-            <StyledCheckbox type="checkbox" style={{ right: "450px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
+            <StyledCheckbox type="checkbox" style={{ right: "580px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
             <StyledLabel style={{ position: "absolute", right: "80px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
           </div>
           <div>

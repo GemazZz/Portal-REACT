@@ -9,6 +9,7 @@ export const StyledH1 = styled.h1`
   cursor: default;
 `;
 export const StyledLabel = styled.label`
+  width: 500px;
   font-size: 30px;
   margin-top: ${(prop) => (prop.size === "large" ? "30px" : "0px")};
   margin-bottom: 5px;
@@ -98,8 +99,7 @@ export const StyledFile = styled.input`
 `;
 
 export const StyledLineDiv = styled.div`
-  height: 70px;
-  width: 500px;
+  width: 650px;
   margin: 5px;
   padding: 10px;
   display: flex;
