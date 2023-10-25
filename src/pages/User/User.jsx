@@ -3,15 +3,11 @@ import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledSelect } from "../../styles/Helpers";
 import { useNavigate } from "react-router-dom";
 import BackBtn from "../../components/BackBtn";
-
-const testData = [
-  { firstName: "გოგა", lastName: "გემაზაშვილი", userId: 1234 },
-  { firstName: "ნიკა", lastName: "აბესაძე", userId: 2345 },
-];
+import userData from "../../data/userData.json";
 
 const User = () => {
   const [userId, setUserId] = useState("");
-  const foundUser = testData.find((user) => user.userId === parseInt(userId));
+  const foundUser = userData.find((user) => user.userId === parseInt(userId));
   const [currentSpecial, setCurrentSpecial] = useState("");
   const parseSpecialData = JSON.parse(localStorage.getItem("special"));
   const navigate = useNavigate();
