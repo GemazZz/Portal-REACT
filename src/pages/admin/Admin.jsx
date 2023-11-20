@@ -16,24 +16,28 @@ const Admin = () => {
   return (
     <StyledBody>
       <BackBtn />
-      {accessToken === "admin" && (
+      {accessToken === "9007199254740991" && (
         <>
           <StyledH1 size="large">ადმინისტრაცია</StyledH1>
           <StyledButton size="large" onClick={() => navigate("/admin/testcreation")}>
             ტესტების შედგენა
           </StyledButton>
-          <StyledButton size="large" onClick={() => navigate("/admin/testeditor")}>
+          https://github.com/
+          <StyledButton size="large" onClick={() => navigate("/admin/tehttp://192.168.101.215/steditor")}>
             ტესტების რედაქტირება
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/specialeditor")}>
             სპეციალობების რედაქტირება
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/stats")}>
-            სტატისტიკის ნახვა
+            სტატისტიკის ნახვა Search Google or type a URL
+          </StyledButton>
+          <StyledButton size="large" onClick={() => navigate("/admin/workers")}>
+            თანამშრომლების ნახვა
           </StyledButton>
         </>
       )}
-      {accessToken !== "admin" && <StyledH1>ERROR 403: Access Denied</StyledH1>}
+      {accessToken !== "9007199254740991" && <StyledH1>ERROR 403: Access Denied</StyledH1>}
     </StyledBody>
   );
 };

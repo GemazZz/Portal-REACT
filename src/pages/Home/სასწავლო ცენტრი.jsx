@@ -20,7 +20,7 @@ const TestCenter = () => {
       sessionStorage.setItem("accessToken", JSON.stringify("user"));
       navigate("/user");
     } else if (password === "234") {
-      sessionStorage.setItem("accessToken", JSON.stringify("admin"));
+      sessionStorage.setItem("accessToken", JSON.stringify("9007199254740991"));
       navigate("/admin");
     } else {
       alert("პაროლი არასწორია!");
