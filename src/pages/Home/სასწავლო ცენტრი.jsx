@@ -17,7 +17,7 @@ const TestCenter = () => {
   };
   const submit = () => {
     if (password === "123") {
-      sessionStorage.setItem("accessToken", JSON.stringify("user"));
+      sessionStorage.setItem("accessToken", JSON.stringify("753951672943816"));
       navigate("/user");
     } else if (password === "234") {
       sessionStorage.setItem("accessToken", JSON.stringify("9007199254740991"));

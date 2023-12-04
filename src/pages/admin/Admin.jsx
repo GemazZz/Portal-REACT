@@ -22,15 +22,14 @@ const Admin = () => {
           <StyledButton size="large" onClick={() => navigate("/admin/testcreation")}>
             ტესტების შედგენა
           </StyledButton>
-          https://github.com/
-          <StyledButton size="large" onClick={() => navigate("/admin/tehttp://192.168.101.215/steditor")}>
+          <StyledButton size="large" onClick={() => navigate("/admin/testeditor")}>
             ტესტების რედაქტირება
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/specialeditor")}>
             სპეციალობების რედაქტირება
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/stats")}>
-            სტატისტიკის ნახვა Search Google or type a URL
+            სტატისტიკის ნახვა
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/workers")}>
             თანამშრომლების ნახვა

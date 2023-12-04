@@ -33,7 +33,7 @@ const UserTests = () => {
   let userAnswers = { userId };
   return (
     <StyledBody>
-      {accessToken === "user" && (
+      {accessToken === "753951672943816" && (
         <>
           <StyledH1 size="large">გისურვებთ წარმატებებს!</StyledH1>
           {singleAnswerQuestions &&
@@ -123,7 +123,7 @@ const UserTests = () => {
           </StyledButton>
         </>
       )}
-      {accessToken !== "user" && (
+      {accessToken !== "753951672943816" && (
         <>
           <BackBtn />
           <StyledH1>ERROR 403: Access Denied</StyledH1>
