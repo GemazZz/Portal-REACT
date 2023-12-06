@@ -103,6 +103,7 @@ export const StyledLineDiv = styled.div`
   margin: 5px;
   padding: 10px;
   display: flex;
+  background-color: rgb(157, 157, 157);
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;

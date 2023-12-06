@@ -42,6 +42,7 @@ const SpecialEditor = () => {
               }}
             />
             <StyledInput
+              type="number"
               placeholder="საიდენტიფიკაციო კოდი"
               value={newUserId}
               onChange={(e) => {
