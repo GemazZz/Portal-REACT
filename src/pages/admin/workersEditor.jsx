@@ -11,7 +11,7 @@ const SpecialEditor = () => {
   const [workersData, setWorkersData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/v1/workersEditor`, { method: "GET" })
+    fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setWorkersData(json);
@@ -56,8 +56,8 @@ const SpecialEditor = () => {
                   alert("შეავსეთ ფორმა სრულად!");
                   return;
                 }
-                fetch(`http://localhost:3000/v1/workersEditor/${newUserId}/${newName}/${newSurname}`, { method: "POST" })
-                  .then(fetch(`http://localhost:3000/v1/workersEditor`, { method: "GET" }))
+                fetch(`http://localhost:4000/v1/workersEditor/${newUserId}/${newName}/${newSurname}`, { method: "POST" })
+                  .then(fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" }))
                   .then((res) => res.json())
                   .then((json) => {
                     setWorkersData(json);
@@ -80,13 +80,13 @@ const SpecialEditor = () => {
               <StyledLineDiv>
                 <StyledLabel>
                   <span>
-                    {item.name} {item.surname} || {item.userId}
+                    {item.surname} {item.name} || {item.userId}
                   </span>
                 </StyledLabel>
                 <StyledDltBtn
                   onClick={() => {
-                    fetch(`http://localhost:3000/v1/workersEditor/${item.userId}`, { method: "DELETE" })
-                      .then(fetch(`http://localhost:3000/v1/workersEditor`, { method: "GET" }))
+                    fetch(`http://localhost:4000/v1/workersEditor/${item.userId}`, { method: "DELETE" })
+                      .then(fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" }))
                       .then((res) => res.json())
                       .then((json) => {
                         setWorkersData(json);

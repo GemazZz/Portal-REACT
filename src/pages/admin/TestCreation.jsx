@@ -29,6 +29,17 @@ const TestCreation = () => {
   const [fourthAnswer, setFourthAnswer] = useState("");
   const [checkFourthAnswer, setCheckFourthAnswer] = useState(false);
 
+  // useEffect(() => {
+  //   fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" })
+  //     .then((res) => res.json())
+  //     .then((json) => {
+  //       setWorkersData(json);
+  //     })
+  //     .catch((err) => {
+  //       console.log("Error:", err);
+  //     });
+  // }, []);
+
   const parseData = JSON.parse(localStorage.getItem("special"));
   let questionData;
   if (!multipleAnswer) {
