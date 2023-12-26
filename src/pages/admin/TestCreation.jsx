@@ -1,14 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledLabel, StyledSelect, StyledTextArea, StyledCheckbox, StyledFile } from "../../styles/Helpers";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { addLocalStorage } from "../../helpers/Helpers";
 import BackBtn from "../../components/BackBtn";
 
 const TestCreation = () => {
-  if (!localStorage.getItem("questions")) {
-    localStorage.setItem("questions", JSON.stringify([]));
-  }
   const navigate = useNavigate();
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
@@ -29,18 +26,21 @@ const TestCreation = () => {
   const [fourthAnswer, setFourthAnswer] = useState("");
   const [checkFourthAnswer, setCheckFourthAnswer] = useState(false);
 
-  // useEffect(() => {
-  //   fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" })
-  //     .then((res) => res.json())
-  //     .then((json) => {
-  //       setWorkersData(json);
-  //     })
-  //     .catch((err) => {
-  //       console.log("Error:", err);
-  //     });
-  // }, []);
+  useEffect(() => {
+    fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => {
+        const parsedData = json.map((special) => special.special);
+        setParseData(parsedData);
+        console.log(json);
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+      });
+  }, []);
 
-  const parseData = JSON.parse(localStorage.getItem("special"));
+  const [parseData, setParseData] = useState([]);
+
   let questionData;
   if (!multipleAnswer) {
     questionData = {
@@ -80,8 +80,8 @@ const TestCreation = () => {
       return;
     }
     addLocalStorage("questions", questionData);
-    navigate("/admin");
     questionData = {};
+    navigate("/admin");
   };
 
   return (
