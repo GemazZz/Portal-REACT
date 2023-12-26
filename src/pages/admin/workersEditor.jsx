@@ -15,6 +15,7 @@ const SpecialEditor = () => {
       .then((res) => res.json())
       .then((json) => {
         setWorkersData(json);
+        console.log(json);
       })
       .catch((err) => {
         console.log("Error:", err);
@@ -61,9 +62,9 @@ const SpecialEditor = () => {
                   .then((res) => res.json())
                   .then((json) => {
                     setWorkersData(json);
-                    setNewName();
-                    setNewSurname();
-                    setNewUserId();
+                    setNewName("");
+                    setNewSurname("");
+                    setNewUserId("");
                   })
                   .catch((err) => {
                     console.log("Error:", err);
