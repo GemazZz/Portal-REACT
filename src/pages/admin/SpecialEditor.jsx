@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { StyledButton, StyledDltBtn } from "../../styles/Button";
 import { StyledBody, StyledForm, StyledH1, StyledInput, StyledLabel, StyledLineDiv } from "../../styles/Helpers";
-import { addLocalStorage } from "../../helpers/Helpers";
 import BackBtn from "../../components/BackBtn";
 
 const SpecialEditor = () => {
@@ -36,6 +35,14 @@ const SpecialEditor = () => {
                 e.preventDefault();
                 if (!newSpecial) {
                   alert("ჩაწერეთ სპეციალობა!");
+                  return;
+                }
+                if (
+                  currentSpecials.some((special) => {
+                    return special.special === newSpecial;
+                  })
+                ) {
+                  alert("სპეციალობა უკვე არსებობს");
                   return;
                 }
                 fetch(`http://localhost:4000/v1/specialsEditor/${newSpecial}`, { method: "POST" })
