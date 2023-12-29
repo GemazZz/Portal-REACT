@@ -32,7 +32,6 @@ const TestCreation = () => {
       .then((json) => {
         const parsedData = json.map((special) => special.special);
         setParseData(parsedData);
-        console.log(json);
       })
       .catch((err) => {
         console.log("Error:", err);
@@ -70,7 +69,7 @@ const TestCreation = () => {
     };
   }
 
-  const addQuestionFunc = () => {
+  const addQuestionFunc = async () => {
     if (category === "") {
       alert("აირჩიეთ სპეციალობა");
       return;
@@ -79,9 +78,21 @@ const TestCreation = () => {
       alert("ჩაწერეთ კითხვა");
       return;
     }
-    addLocalStorage("questions", questionData);
-    questionData = {};
-    navigate("/admin");
+    await fetch(`http://localhost:4000/v1/questionEditor`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(questionData),
+    })
+      .then(() => {
+        questionData = {};
+        navigate("/admin");
+      })
+      .catch((err) => {
+        alert(err);
+        console.log("Error:", err);
+      });
   };
 
   return (
@@ -205,7 +216,7 @@ const TestCreation = () => {
               />
             )}
           </div>
-          <StyledButton size="large" onClick={() => addQuestionFunc()}>
+          <StyledButton size="large" onClick={async () => await addQuestionFunc()}>
             დამატება
           </StyledButton>
         </>

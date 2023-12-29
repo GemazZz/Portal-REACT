@@ -19,8 +19,7 @@ const TestEditor = () => {
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
   const [parseSpecialData, setParseSpecialData] = useState([]);
-  const parseQuestionData = JSON.parse(localStorage.getItem("questions"));
-  const [questionData, setQuestionData] = useState(parseQuestionData);
+  const [questionData, setQuestionData] = useState([]);
 
   const singleAnswerQuestions = questionData.filter((item) => {
     return item.multipleAnswer === false;
@@ -28,6 +27,7 @@ const TestEditor = () => {
   const multipleAnswerQuestions = questionData.filter((item) => {
     return item.multipleAnswer === true;
   });
+
   useEffect(() => {
     fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
@@ -39,6 +39,18 @@ const TestEditor = () => {
         console.log("Error:", err);
       });
   }, []);
+
+  useEffect(() => {
+    fetch(`http://localhost:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => {
+        console.log(json);
+        setQuestionData(json);
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+      });
+  }, [currentSpecial]);
 
   return (
     <StyledBody>
@@ -75,7 +87,7 @@ const TestEditor = () => {
                     <StyledNumberOfCorrectAnswer>1 სწორი პასუხი</StyledNumberOfCorrectAnswer>
                     <StyledDltBtn1
                       onClick={() => {
-                        const filteredData = parseQuestionData.filter((item) => {
+                        const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
                         localStorage.setItem("questions", JSON.stringify(filteredData));
@@ -116,7 +128,7 @@ const TestEditor = () => {
                     <StyledNumberOfCorrectAnswer>რამდენიმე სწორი პასუხი</StyledNumberOfCorrectAnswer>
                     <StyledDltBtn1
                       onClick={() => {
-                        const filteredData = parseQuestionData.filter((item) => {
+                        const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
                         localStorage.setItem("questions", JSON.stringify(filteredData));
