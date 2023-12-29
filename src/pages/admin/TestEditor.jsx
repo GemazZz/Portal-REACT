@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   StyledBody,
   StyledCheckbox1,
@@ -18,7 +18,7 @@ const TestEditor = () => {
   const [currentSpecial, setCurrentSpecial] = useState("");
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
-  const parseSpecialData = JSON.parse(localStorage.getItem("special"));
+  const [parseSpecialData, setParseSpecialData] = useState([]);
   const parseQuestionData = JSON.parse(localStorage.getItem("questions"));
   const [questionData, setQuestionData] = useState(parseQuestionData);
 
@@ -28,6 +28,17 @@ const TestEditor = () => {
   const multipleAnswerQuestions = questionData.filter((item) => {
     return item.multipleAnswer === true;
   });
+  useEffect(() => {
+    fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => {
+        const parsedData = json.map((special) => special.special);
+        setParseSpecialData(parsedData);
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+      });
+  }, []);
 
   return (
     <StyledBody>
