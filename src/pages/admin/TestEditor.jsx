@@ -86,12 +86,19 @@ const TestEditor = () => {
                     })}
                     <StyledNumberOfCorrectAnswer>1 სწორი პასუხი</StyledNumberOfCorrectAnswer>
                     <StyledDltBtn1
-                      onClick={() => {
+                      onClick={async () => {
                         const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
-                        localStorage.setItem("questions", JSON.stringify(filteredData));
-                        setQuestionData(filteredData);
+                        await fetch(`http://localhost:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
+                          .then((res) => res.json())
+                          .then((json) => {
+                            console.log(json);
+                            setQuestionData(filteredData);
+                          })
+                          .catch((err) => {
+                            console.log("Error:", err);
+                          });
                       }}
                     >
                       წაშლა
@@ -127,12 +134,19 @@ const TestEditor = () => {
                     })}
                     <StyledNumberOfCorrectAnswer>რამდენიმე სწორი პასუხი</StyledNumberOfCorrectAnswer>
                     <StyledDltBtn1
-                      onClick={() => {
+                      onClick={async () => {
                         const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
-                        localStorage.setItem("questions", JSON.stringify(filteredData));
-                        setQuestionData(filteredData);
+                        await fetch(`http://localhost:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
+                          .then((res) => res.json())
+                          .then((json) => {
+                            console.log(json);
+                            setQuestionData(filteredData);
+                          })
+                          .catch((err) => {
+                            console.log("Error:", err);
+                          });
                       }}
                     >
                       წაშლა

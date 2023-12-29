@@ -2,7 +2,6 @@ import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledLabel, StyledSelect, StyledTextArea, StyledCheckbox, StyledFile } from "../../styles/Helpers";
 import { useEffect, useState } from "react";
-import { addLocalStorage } from "../../helpers/Helpers";
 import BackBtn from "../../components/BackBtn";
 
 const TestCreation = () => {
