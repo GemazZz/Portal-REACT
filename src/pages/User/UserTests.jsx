@@ -12,12 +12,24 @@ import { questionSingleStructure, questionMultiStructure, shuffleArray } from ".
 import { useNavigate, useParams } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
 import BackBtn from "../../components/BackBtn";
+import { useEffect, useState } from "react";
 
 const UserTests = () => {
   const navigate = useNavigate();
-  const currentSpecialParams = useParams().category;
+  const currentSpecial = useParams().category;
   const userId = useParams().userId;
-  const questionData = JSON.parse(localStorage.getItem("questions"));
+  const [questionData, setQuestionData] = useState([]);
+  useEffect(() => {
+    fetch(`http://localhost:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
+      .then((res) => res.json())
+      .then((json) => {
+        setQuestionData(json);
+      })
+      .catch((err) => {
+        console.log("Error:", err);
+      });
+  }, []);
+  console.log(questionData);
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
   const singleAnswerQuestions = questionData.filter((item) => {
@@ -30,7 +42,7 @@ const UserTests = () => {
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
   const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
   const usersAnswers = JSON.parse(localStorage.getItem("usersAnswers") || []);
-  let userAnswers = { userId };
+  let userAnswers = { userId, special: currentSpecial };
   return (
     <StyledBody>
       {accessToken === "753951672943816" && (
@@ -41,32 +53,30 @@ const UserTests = () => {
               const questionAnswers = questionSingleStructure(question);
               const shuffledQuestionAnswers = shuffleArray(questionAnswers);
               return (
-                currentSpecialParams === question.category && (
-                  <StyledQuestionLineDiv key={question.questionId}>
-                    <StyledLabel>{question.question}</StyledLabel>
-                    {shuffledQuestionAnswers.map((answer) => {
-                      return (
-                        <StyledDivLine>
-                          <StyledCheckbox1
-                            type="radio"
-                            name={question.questionId}
-                            value={answer}
-                            id={answer}
-                            onChange={() => {
-                              if (!userAnswers[question.questionId]) {
-                                userAnswers[question.questionId] = answer;
-                              } else {
-                                userAnswers[question.questionId] = answer;
-                              }
-                            }}
-                          />
-                          <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
-                        </StyledDivLine>
-                      );
-                    })}
-                    <StyledNumberOfCorrectAnswer>1 სწორი პასუხი</StyledNumberOfCorrectAnswer>
-                  </StyledQuestionLineDiv>
-                )
+                <StyledQuestionLineDiv key={question.questionId}>
+                  <StyledLabel>{question.question}</StyledLabel>
+                  {shuffledQuestionAnswers.map((answer) => {
+                    return (
+                      <StyledDivLine>
+                        <StyledCheckbox1
+                          type="radio"
+                          name={question.questionId}
+                          value={answer}
+                          id={answer}
+                          onChange={() => {
+                            if (!userAnswers[question.questionId]) {
+                              userAnswers[question.questionId] = answer;
+                            } else {
+                              userAnswers[question.questionId] = answer;
+                            }
+                          }}
+                        />
+                        <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
+                      </StyledDivLine>
+                    );
+                  })}
+                  <StyledNumberOfCorrectAnswer>1 სწორი პასუხი</StyledNumberOfCorrectAnswer>
+                </StyledQuestionLineDiv>
               );
             })}
           {multipleAnswerQuestions &&
@@ -74,40 +84,38 @@ const UserTests = () => {
               const questionAnswers = questionMultiStructure(question);
               const shuffledQuestionAnswers = shuffleArray(questionAnswers);
               return (
-                currentSpecialParams === question.category && (
-                  <StyledQuestionLineDiv key={question.questionId}>
-                    <StyledLabel>{question.question}</StyledLabel>
-                    {shuffledQuestionAnswers.map((answer) => {
-                      return (
-                        <StyledDivLine>
-                          <StyledCheckbox1
-                            type="checkbox"
-                            name={question.questionId}
-                            value={answer}
-                            id={answer}
-                            onClick={() => {
-                              if (!userAnswers[question.questionId]) {
-                                userAnswers[question.questionId] = [answer];
+                <StyledQuestionLineDiv key={question.questionId}>
+                  <StyledLabel>{question.question}</StyledLabel>
+                  {shuffledQuestionAnswers.map((answer) => {
+                    return (
+                      <StyledDivLine>
+                        <StyledCheckbox1
+                          type="checkbox"
+                          name={question.questionId}
+                          value={answer}
+                          id={answer}
+                          onClick={() => {
+                            if (!userAnswers[question.questionId]) {
+                              userAnswers[question.questionId] = [answer];
+                            } else {
+                              const index = userAnswers[question.questionId].indexOf(answer);
+                              if (index === -1) {
+                                userAnswers[question.questionId].push(answer);
                               } else {
-                                const index = userAnswers[question.questionId].indexOf(answer);
-                                if (index === -1) {
-                                  userAnswers[question.questionId].push(answer);
-                                } else {
-                                  userAnswers[question.questionId].splice(index, 1);
-                                }
+                                userAnswers[question.questionId].splice(index, 1);
                               }
-                              if (userAnswers[question.questionId].length === 0) {
-                                delete userAnswers[question.questionId];
-                              }
-                            }}
-                          />
-                          <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
-                        </StyledDivLine>
-                      );
-                    })}
-                    <StyledNumberOfCorrectAnswer>რამდენიმე სწორი პასუხი</StyledNumberOfCorrectAnswer>
-                  </StyledQuestionLineDiv>
-                )
+                            }
+                            if (userAnswers[question.questionId].length === 0) {
+                              delete userAnswers[question.questionId];
+                            }
+                          }}
+                        />
+                        <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
+                      </StyledDivLine>
+                    );
+                  })}
+                  <StyledNumberOfCorrectAnswer>რამდენიმე სწორი პასუხი</StyledNumberOfCorrectAnswer>
+                </StyledQuestionLineDiv>
               );
             })}
           <StyledButton
