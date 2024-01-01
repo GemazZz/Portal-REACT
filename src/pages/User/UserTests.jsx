@@ -29,7 +29,6 @@ const UserTests = () => {
         console.log("Error:", err);
       });
   }, []);
-  console.log(questionData);
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
   const singleAnswerQuestions = questionData.filter((item) => {
@@ -41,7 +40,6 @@ const UserTests = () => {
 
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
   const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
-  const usersAnswers = JSON.parse(localStorage.getItem("usersAnswers") || []);
   let userAnswers = { userId, special: currentSpecial };
   return (
     <StyledBody>
@@ -62,7 +60,7 @@ const UserTests = () => {
                           type="radio"
                           name={question.questionId}
                           value={answer}
-                          id={answer}
+                          id={answer + "single"}
                           onChange={() => {
                             if (!userAnswers[question.questionId]) {
                               userAnswers[question.questionId] = answer;
@@ -71,7 +69,7 @@ const UserTests = () => {
                             }
                           }}
                         />
-                        <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
+                        <StyledOptionBtn htmlFor={answer + "single"}>{answer}</StyledOptionBtn>
                       </StyledDivLine>
                     );
                   })}
@@ -93,7 +91,7 @@ const UserTests = () => {
                           type="checkbox"
                           name={question.questionId}
                           value={answer}
-                          id={answer}
+                          id={answer + "multi"}
                           onClick={() => {
                             if (!userAnswers[question.questionId]) {
                               userAnswers[question.questionId] = [answer];
@@ -110,7 +108,7 @@ const UserTests = () => {
                             }
                           }}
                         />
-                        <StyledOptionBtn htmlFor={answer}>{answer}</StyledOptionBtn>
+                        <StyledOptionBtn htmlFor={answer + "multi"}>{answer}</StyledOptionBtn>
                       </StyledDivLine>
                     );
                   })}
@@ -121,10 +119,23 @@ const UserTests = () => {
           <StyledButton
             size="large"
             margin="large"
-            onClick={() => {
-              const updatedUserAnswers = [...usersAnswers, userAnswers];
-              localStorage.setItem("usersAnswers", JSON.stringify(updatedUserAnswers));
-              navigate("/");
+            onClick={async () => {
+              console.log(userAnswers);
+              await fetch(`http://localhost:4000/v1/stats`, {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userAnswers),
+              })
+                .then((res) => res.json())
+                .then((json) => {
+                  console.log(json);
+                  navigate("/");
+                })
+                .catch((err) => {
+                  console.log("Error:", err);
+                });
             }}
           >
             დასრულება
