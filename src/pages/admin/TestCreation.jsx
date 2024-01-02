@@ -215,7 +215,16 @@ const TestCreation = () => {
               />
             )}
           </div>
-          <StyledButton size="large" onClick={async () => await addQuestionFunc()}>
+          <StyledButton
+            size="large"
+            onClick={async () => {
+              if (multipleAnswer && !checkFirstAnswer && !checkSecondAnswer && !checkThirdAnswer && !checkFourthAnswer) {
+                alert("მონიშნეთ სწორი პასუხი!");
+                return;
+              }
+              await addQuestionFunc();
+            }}
+          >
             დამატება
           </StyledButton>
         </>

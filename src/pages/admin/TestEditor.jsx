@@ -79,8 +79,13 @@ const TestEditor = () => {
                     {questionAnswers.map((answer) => {
                       return (
                         <StyledDivLine>
-                          <StyledCheckbox1 type="radio" name={question.questionId} id={answer} checked={question.correctAnswer === answer} />
-                          <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
+                          <StyledCheckbox1
+                            type="radio"
+                            name={question.questionId}
+                            id={answer + "single"}
+                            checked={question.correctAnswer === answer}
+                          />
+                          <StyledOptionBtn for={answer + "single"}>{answer}</StyledOptionBtn>
                         </StyledDivLine>
                       );
                     })}
@@ -120,7 +125,7 @@ const TestEditor = () => {
                           <StyledCheckbox1
                             type="checkbox"
                             name={question.questionId}
-                            id={answer}
+                            id={answer + "multi"}
                             checked={
                               (question.firstAnswer === answer && question.checkFirstAnswer === true) ||
                               (question.secondAnswer === answer && question.checkSecondAnswer === true) ||
@@ -128,7 +133,7 @@ const TestEditor = () => {
                               (question.fourthAnswer === answer && question.checkFourthAnswer === true)
                             }
                           />
-                          <StyledOptionBtn for={answer}>{answer}</StyledOptionBtn>
+                          <StyledOptionBtn for={answer + "multi"}>{answer}</StyledOptionBtn>
                         </StyledDivLine>
                       );
                     })}
