@@ -130,6 +130,12 @@ export const StyledNumberOfCorrectAnswer = styled.p`
   bottom: 10px;
   right: 10px;
 `;
+export const StyledP = styled.p`
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+`;
 
 export const StyledOptionBtn = styled.label`
   position: relative;
@@ -151,4 +157,30 @@ export const StyledOptionBtn = styled.label`
   &:hover {
     scale: 1.02;
   }
+`;
+
+export const StyledStatsDiv = styled.div`
+  position: relative;
+  display: flex;
+  background-color: rgb(157, 157, 157);
+  width: 1200px;
+  min-height: 200px;
+  margin: 12px;
+  padding: 20px;
+  padding-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+`;
+
+export const StyledLabel1 = styled.label`
+  width: 400px;
+  position: relative;
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 35px;
+  border: 1px solid black;
+  cursor: default;
 `;

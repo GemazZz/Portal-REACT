@@ -87,7 +87,6 @@ const SpecialEditor = () => {
                 <StyledDltBtn
                   onClick={() => {
                     fetch(`http://localhost:4000/v1/workersEditor/${item.userId}`, { method: "DELETE" })
-                      .then(fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" }))
                       .then((res) => res.json())
                       .then((json) => {
                         setWorkersData(json);

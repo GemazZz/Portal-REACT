@@ -121,6 +121,10 @@ const UserTests = () => {
             margin="large"
             onClick={async () => {
               console.log(userAnswers);
+              if (Object.keys(userAnswers).length < 3) {
+                alert("შეავსეთ ტესტი!");
+                return;
+              }
               await fetch(`http://localhost:4000/v1/stats`, {
                 method: "POST",
                 headers: {

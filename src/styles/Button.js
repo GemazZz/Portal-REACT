@@ -37,6 +37,7 @@ export const StyledBackBtn = styled.button`
     scale: 0.96;
   }
 `;
+
 export const StyledDltBtn = styled.button`
   width: 120px;
   height: 50px;
@@ -60,6 +61,23 @@ export const StyledDltBtn1 = styled.button`
   border-radius: 20px;
   right: 15px;
   bottom: 45px;
+  transition: 0.12s;
+  font-size: 20px;
+  background-color: rgb(245, 125, 125);
+  &:hover {
+    scale: 1.07;
+  }
+  &:active {
+    scale: 0.96;
+  }
+`;
+export const StyledDltBtn2 = styled.button`
+  position: absolute;
+  width: 120px;
+  height: 50px;
+  border-radius: 20px;
+  right: 15px;
+  bottom: 25px;
   transition: 0.12s;
   font-size: 20px;
   background-color: rgb(245, 125, 125);
