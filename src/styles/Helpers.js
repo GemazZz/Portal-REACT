@@ -175,6 +175,7 @@ export const StyledStatsDiv = styled.div`
 `;
 
 export const StyledLabel1 = styled.label`
+  background-color: rgb(190, 190, 190);
   width: 400px;
   position: relative;
   font-size: 30px;

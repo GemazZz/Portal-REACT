@@ -38,7 +38,7 @@ const Stats = () => {
                 {user.name} {user.surname}
               </StyledLabel1>
               <StyledLabel1>{stat.special}</StyledLabel1>
-              <StyledLabel1>{stat.result}</StyledLabel1>
+              <StyledLabel1 style={{ textAlign: "center" }}>{stat.result}</StyledLabel1>
               <StyledP>{stat.date}</StyledP>
               <StyledDltBtn2
                 onClick={async () => {
