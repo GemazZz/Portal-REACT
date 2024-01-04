@@ -19,13 +19,13 @@ const Admin = () => {
             ტესტების რედაქტირება
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/specialeditor")}>
-            სპეციალობების რედაქტირება
+            სპეციალობები
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/stats")}>
-            სტატისტიკის ნახვა
+            სტატისტიკა
           </StyledButton>
           <StyledButton size="large" onClick={() => navigate("/admin/workers")}>
-            თანამშრომლების ნახვა
+            თანამშრომლები
           </StyledButton>
         </>
       )}
