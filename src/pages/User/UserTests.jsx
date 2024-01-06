@@ -120,7 +120,6 @@ const UserTests = () => {
             size="large"
             margin="large"
             onClick={async () => {
-              console.log(userAnswers);
               if (Object.keys(userAnswers).length < 3) {
                 alert("შეავსეთ ტესტი!");
                 return;
@@ -134,7 +133,6 @@ const UserTests = () => {
               })
                 .then((res) => res.json())
                 .then((json) => {
-                  console.log(json);
                   navigate("/");
                 })
                 .catch((err) => {

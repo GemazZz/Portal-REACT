@@ -25,6 +25,18 @@ export const StyledBody = styled.div`
   justify-content: center;
   align-items: center;
 `;
+export const StyledMainBody = styled.div`
+  background-image: url(../assets/SU25Mastered.jpg);
+  background-size: cover;
+  height: 1920px;
+  width: 1080px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+`;
+
 export const StyledDivLine = styled.div`
   position: relative;
   display: flex;

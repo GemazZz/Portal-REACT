@@ -44,7 +44,6 @@ const TestEditor = () => {
     fetch(`http://localhost:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
         setQuestionData(json);
       })
       .catch((err) => {
@@ -98,7 +97,6 @@ const TestEditor = () => {
                         await fetch(`http://localhost:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
                           .then((res) => res.json())
                           .then((json) => {
-                            console.log(json);
                             setQuestionData(filteredData);
                           })
                           .catch((err) => {
@@ -146,7 +144,6 @@ const TestEditor = () => {
                         await fetch(`http://localhost:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
                           .then((res) => res.json())
                           .then((json) => {
-                            console.log(json);
                             setQuestionData(filteredData);
                           })
                           .catch((err) => {

@@ -15,7 +15,6 @@ const SpecialEditor = () => {
       .then((res) => res.json())
       .then((json) => {
         setWorkersData(json);
-        console.log(json);
       })
       .catch((err) => {
         console.log("Error:", err);
