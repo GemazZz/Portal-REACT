@@ -5,7 +5,7 @@ import BackBtn from "../../components/BackBtn";
 
 const SpecialEditor = () => {
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setCurrentSpecials(json);
@@ -45,8 +45,8 @@ const SpecialEditor = () => {
                   alert("სპეციალობა უკვე არსებობს");
                   return;
                 }
-                fetch(`http://localhost:4000/v1/specialsEditor/${newSpecial}`, { method: "POST" })
-                  .then(fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" }))
+                fetch(`http://192.168.101.44:4000/v1/specialsEditor/${newSpecial}`, { method: "POST" })
+                  .then(fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" }))
                   .then((res) => res.json())
                   .then((json) => {
                     setNewSpecial("");
@@ -67,8 +67,8 @@ const SpecialEditor = () => {
                 <StyledLabel>{item.special}</StyledLabel>
                 <StyledDltBtn
                   onClick={() => {
-                    fetch(`http://localhost:4000/v1/specialsEditor/${item.special}`, { method: "DELETE" })
-                      .then(fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" }))
+                    fetch(`http://192.168.101.44:4000/v1/specialsEditor/${item.special}`, { method: "DELETE" })
+                      .then(fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" }))
                       .then((res) => res.json())
                       .then((json) => {
                         setCurrentSpecials(json);

@@ -29,7 +29,7 @@ const TestEditor = () => {
   });
 
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         const parsedData = json.map((special) => special.special);
@@ -41,7 +41,7 @@ const TestEditor = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setQuestionData(json);
@@ -94,7 +94,7 @@ const TestEditor = () => {
                         const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
-                        await fetch(`http://localhost:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
+                        await fetch(`http://192.168.101.44:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
                           .then((res) => res.json())
                           .then((json) => {
                             setQuestionData(filteredData);
@@ -141,7 +141,7 @@ const TestEditor = () => {
                         const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
-                        await fetch(`http://localhost:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
+                        await fetch(`http://192.168.101.44:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
                           .then((res) => res.json())
                           .then((json) => {
                             setQuestionData(filteredData);

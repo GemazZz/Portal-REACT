@@ -11,7 +11,7 @@ const SpecialEditor = () => {
   const [workersData, setWorkersData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setWorkersData(json);
@@ -23,7 +23,7 @@ const SpecialEditor = () => {
 
   return (
     <StyledBody>
-      <StyledH1>სპეციალობის რედაქტირება</StyledH1>
+      <StyledH1>თანამშრომლების დამატება</StyledH1>
       {accessToken === "9007199254740991" && (
         <>
           <StyledForm>
@@ -56,8 +56,8 @@ const SpecialEditor = () => {
                   alert("შეავსეთ ფორმა სრულად!");
                   return;
                 }
-                fetch(`http://localhost:4000/v1/workersEditor/${newUserId}/${newName}/${newSurname}`, { method: "POST" })
-                  .then(fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" }))
+                fetch(`http://192.168.101.44:4000/v1/workersEditor/${newUserId}/${newName}/${newSurname}`, { method: "POST" })
+                  .then(fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" }))
                   .then((res) => res.json())
                   .then((json) => {
                     setWorkersData(json);
@@ -85,7 +85,7 @@ const SpecialEditor = () => {
                 </StyledLabel>
                 <StyledDltBtn
                   onClick={() => {
-                    fetch(`http://localhost:4000/v1/workersEditor/${item.userId}`, { method: "DELETE" })
+                    fetch(`http://192.168.101.44:4000/v1/workersEditor/${item.userId}`, { method: "DELETE" })
                       .then((res) => res.json())
                       .then((json) => {
                         setWorkersData(json);

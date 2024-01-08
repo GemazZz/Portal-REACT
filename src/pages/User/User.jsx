@@ -8,7 +8,7 @@ const User = () => {
   const [userId, setUserId] = useState("");
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setUserData(json);
@@ -16,7 +16,7 @@ const User = () => {
       .catch((err) => {
         console.log("Error:", err);
       });
-    fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         const parsedData = json.map((special) => special.special);

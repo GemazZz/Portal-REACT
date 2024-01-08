@@ -26,7 +26,7 @@ const TestCreation = () => {
   const [checkFourthAnswer, setCheckFourthAnswer] = useState(false);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/specialsEditor`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         const parsedData = json.map((special) => special.special);
@@ -77,7 +77,7 @@ const TestCreation = () => {
       alert("ჩაწერეთ კითხვა");
       return;
     }
-    await fetch(`http://localhost:4000/v1/questionEditor`, {
+    await fetch(`http://192.168.101.44:4000/v1/questionEditor`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

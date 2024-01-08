@@ -20,7 +20,7 @@ const UserTests = () => {
   const userId = useParams().userId;
   const [questionData, setQuestionData] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setQuestionData(json);
@@ -124,7 +124,7 @@ const UserTests = () => {
                 alert("შეავსეთ ტესტი!");
                 return;
               }
-              await fetch(`http://localhost:4000/v1/stats`, {
+              await fetch(`http://192.168.101.44:4000/v1/stats`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

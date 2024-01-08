@@ -7,7 +7,7 @@ const Stats = () => {
   const [userData, setUserData] = useState([]);
   console.log(statsData);
   useEffect(() => {
-    fetch(`http://localhost:4000/v1/stats`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/stats`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setStatsData(json);
@@ -15,7 +15,7 @@ const Stats = () => {
       .catch((err) => {
         console.log("Error:", err);
       });
-    fetch(`http://localhost:4000/v1/workersEditor`, { method: "GET" })
+    fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setUserData(json);
@@ -42,7 +42,7 @@ const Stats = () => {
               <StyledP>{stat.date}</StyledP>
               <StyledDltBtn2
                 onClick={async () => {
-                  await fetch(`http://localhost:4000/v1/stats/${stat.statsId}`, { method: "DELETE" })
+                  await fetch(`http://192.168.101.44:4000/v1/stats/${stat.statsId}`, { method: "DELETE" })
                     .then((res) => res.json())
                     .then((json) => {
                       setStatsData(json);
