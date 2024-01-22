@@ -6,8 +6,7 @@
 
 body {
   width: 1900px;
-  min-height: 100vh;
-  /* background-image: url(./assets/SU25Mastered.jpg);
-  background-size: cover; */
+  /* background-image: url(./assets/SU25Mastered.jpg); */
+  background-size: cover;
   background-color: rgb(117, 117, 117);
 }

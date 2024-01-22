@@ -1,4 +1,5 @@
 import { styled } from "styled-components";
+import backgroundImg from "../assets/SU25Mastered.jpg";
 
 export const StyledH1 = styled.h1`
   font-size: ${(prop) => (prop.size === "large" ? "65px" : "35px")};
@@ -25,15 +26,14 @@ export const StyledBody = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const StyledMainBody = styled.div`
-  background-image: url(../assets/SU25Mastered.jpg);
+export const StyledStartBody = styled.div`
+  background-image: url(${backgroundImg});
   background-size: cover;
-  height: 1920px;
-  width: 1080px;
   position: relative;
+  height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: start;
   align-items: center;
 `;
 

@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { StyledBody, StyledForm, StyledH1, StyledInput } from "../../styles/Helpers";
+import { StyledForm, StyledH1, StyledInput, StyledStartBody } from "../../styles/Helpers";
 import { useState } from "react";
 import { StyledButton } from "../../styles/Button";
 import BackBtn from "../../components/BackBtn";
@@ -24,14 +24,14 @@ const TestCenter = () => {
     }
   };
   return (
-    <StyledBody>
+    <StyledStartBody>
       <BackBtn />
       <StyledH1 size="large">ტესტების ცენტრი</StyledH1>
       <StyledForm>
         <StyledInput type="password" placeholder="ჩაწერეთ პაროლი" onChange={passwordChange} />
         <StyledButton onClick={submit}>შესვლა</StyledButton>
       </StyledForm>
-    </StyledBody>
+    </StyledStartBody>
   );
 };
 

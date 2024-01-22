@@ -1,12 +1,12 @@
 import BackBtn from "../../components/BackBtn";
-import { StyledBody, StyledH1 } from "../../styles/Helpers";
+import { StyledH1, StyledStartBody } from "../../styles/Helpers";
 
 const Others = () => {
   return (
-    <StyledBody>
+    <StyledStartBody>
       <BackBtn />
       <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>
-    </StyledBody>
+    </StyledStartBody>
   );
 };
 
