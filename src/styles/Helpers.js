@@ -1,6 +1,9 @@
 import { styled } from "styled-components";
 import backgroundImg from "../assets/SU25Mastered.jpg";
 
+const backgroundClr1 = "#9d9d9d";
+const backgroundClr2 = "#bebebe";
+
 export const StyledH1 = styled.h1`
   font-size: ${(prop) => (prop.size === "large" ? "65px" : "35px")};
   margin-top: ${(prop) => (prop.size === "large" ? "60px" : "30px")};
@@ -55,7 +58,6 @@ export const StyledDiv = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  /* align-items: start; */
 `;
 
 export const StyledInput = styled.input`
@@ -115,7 +117,7 @@ export const StyledLineDiv = styled.div`
   margin: 5px;
   padding: 10px;
   display: flex;
-  background-color: rgb(157, 157, 157);
+  background-color: ${backgroundClr1};
   justify-content: space-between;
   align-items: center;
   border: 1px solid black;
@@ -123,7 +125,7 @@ export const StyledLineDiv = styled.div`
 `;
 export const StyledQuestionLineDiv = styled.div`
   position: relative;
-  background-color: rgb(157, 157, 157);
+  background-color: ${backgroundClr1};
   width: 1100px;
   margin: 12px;
   padding: 20px;
@@ -156,7 +158,6 @@ export const StyledOptionBtn = styled.label`
   align-items: center;
   padding: 10px;
   width: min(500px);
-  /* height: 70px; */
   transition: 0.12s;
   cursor: pointer;
   font-weight: 600;
@@ -174,7 +175,7 @@ export const StyledOptionBtn = styled.label`
 export const StyledStatsDiv = styled.div`
   position: relative;
   display: flex;
-  background-color: rgb(157, 157, 157);
+  background-color: ${backgroundClr1};
   width: 1200px;
   min-height: 200px;
   margin: 12px;
@@ -187,7 +188,7 @@ export const StyledStatsDiv = styled.div`
 `;
 
 export const StyledLabel1 = styled.label`
-  background-color: rgb(190, 190, 190);
+  background-color: ${backgroundClr2};
   width: 400px;
   position: relative;
   font-size: 30px;

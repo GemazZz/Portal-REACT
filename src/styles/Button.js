@@ -1,11 +1,13 @@
 import { styled } from "styled-components";
+const mainBtnColor = "#f3cec6";
+const backBtnClr = "#f57d7d";
 
 export const StyledButton = styled.button`
   width: ${(prop) => (prop.size === "large" ? "390px" : "255px")};
   height: ${(prop) => (prop.size === "large" ? "80px" : "50px")};
   transition: 0.12s;
   cursor: pointer;
-  background-color: #f3cec6;
+  background-color: ${mainBtnColor};
   border-radius: 15px;
   font-family: "Times New Roman", Times, serif;
   font-weight: ${(prop) => (prop.size === "large" ? "800" : "600")};
@@ -29,7 +31,7 @@ export const StyledBackBtn = styled.button`
   top: 20px;
   transition: 0.12s;
   font-size: 20px;
-  background-color: rgb(245, 125, 125);
+  background-color: ${backBtnClr};
   &:hover {
     scale: 1.07;
   }
@@ -46,7 +48,7 @@ export const StyledDltBtn = styled.button`
   top: 20px;
   transition: 0.12s;
   font-size: 20px;
-  background-color: rgb(245, 125, 125);
+  background-color: ${backBtnClr};
   &:hover {
     scale: 1.07;
   }
@@ -63,7 +65,7 @@ export const StyledDltBtn1 = styled.button`
   bottom: 45px;
   transition: 0.12s;
   font-size: 20px;
-  background-color: rgb(245, 125, 125);
+  background-color: ${backBtnClr};
   &:hover {
     scale: 1.07;
   }
@@ -80,7 +82,7 @@ export const StyledDltBtn2 = styled.button`
   bottom: 25px;
   transition: 0.12s;
   font-size: 20px;
-  background-color: rgb(245, 125, 125);
+  background-color: ${backBtnClr};
   &:hover {
     scale: 1.07;
   }

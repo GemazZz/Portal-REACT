@@ -8,22 +8,26 @@ function Starter() {
   return (
     <StyledStartBody>
       <StyledH1 size="large">საინფორმაციო პორტალი</StyledH1>
-      <StyledButton
-        size="large"
-        onClick={() => {
-          navigate("/documentation");
-        }}
-      >
-        დოკუმენტაცია
-      </StyledButton>
-      <StyledButton
-        size="large"
-        onClick={() => {
-          navigate("/quality");
-        }}
-      >
-        ხარისხის მართვის სისტემა
-      </StyledButton>
+      <div>
+        <StyledButton
+          size="large"
+          style={{ margin: "8px" }}
+          onClick={() => {
+            navigate("/documentation");
+          }}
+        >
+          დოკუმენტაცია
+        </StyledButton>
+        <StyledButton
+          size="large"
+          style={{ margin: "8px" }}
+          onClick={() => {
+            navigate("/quality");
+          }}
+        >
+          ხარისხის მართვის სისტემა
+        </StyledButton>
+      </div>
       <StyledButton
         size="large"
         onClick={() => {
