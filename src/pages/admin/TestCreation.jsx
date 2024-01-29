@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
-import { StyledBody, StyledH1, StyledInput, StyledLabel, StyledSelect, StyledTextArea, StyledCheckbox, StyledFile } from "../../styles/Helpers";
+import { StyledBody, StyledH1, StyledInput, StyledLabel, StyledSelect, StyledTextArea, StyledCheckbox } from "../../styles/Helpers";
 import { useEffect, useState } from "react";
 import BackBtn from "../../components/BackBtn";
 
@@ -121,10 +121,6 @@ const TestCreation = () => {
             <StyledCheckbox type="checkbox" style={{ right: "580px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
             <StyledLabel style={{ position: "absolute", right: "80px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
           </div>
-          <div>
-            <StyledLabel>აირჩიეთ ფოტო: </StyledLabel>
-            <StyledFile type="file" />
-          </div>
           <StyledTextArea
             size="large"
             placeholder="შეკითხვის ადგილი"
@@ -216,6 +212,7 @@ const TestCreation = () => {
             )}
           </div>
           <StyledButton
+            clr="light"
             size="large"
             onClick={async () => {
               if (multipleAnswer && !checkFirstAnswer && !checkSecondAnswer && !checkThirdAnswer && !checkFourthAnswer) {

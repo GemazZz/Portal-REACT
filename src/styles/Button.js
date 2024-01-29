@@ -7,7 +7,7 @@ export const StyledButton = styled.button`
   height: ${(prop) => (prop.size === "large" ? "80px" : "50px")};
   transition: 0.12s;
   cursor: pointer;
-  background-color: ${mainBtnColor};
+  background-color: ${(prop) => (prop.clr === "light" ? "#5db492" : mainBtnColor)};
   border-radius: 15px;
   font-family: "Times New Roman", Times, serif;
   font-weight: ${(prop) => (prop.size === "large" ? "800" : "600")};
@@ -16,6 +16,7 @@ export const StyledButton = styled.button`
   margin-bottom: ${(prop) => (prop.margin === "large" ? "150px" : prop.margin === "small" ? "30px" : "0px")};
   &:hover {
     scale: 1.07;
+    background-color: ${(prop) => (prop.clr === "light" ? "#5897ee" : "rgb(238, 188, 177)")};
   }
   &:active {
     scale: 0.96;

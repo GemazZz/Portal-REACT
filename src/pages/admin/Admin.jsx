@@ -12,19 +12,19 @@ const Admin = () => {
       {accessToken === "9007199254740991" && (
         <>
           <StyledH1 size="large">ადმინისტრაცია</StyledH1>
-          <StyledButton size="large" onClick={() => navigate("/admin/testcreation")}>
+          <StyledButton clr="light" size="large" onClick={() => navigate("/admin/testcreation")}>
             ტესტების შედგენა
           </StyledButton>
-          <StyledButton size="large" onClick={() => navigate("/admin/testeditor")}>
+          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/testeditor")}>
             ტესტების რედაქტირება
           </StyledButton>
-          <StyledButton size="large" onClick={() => navigate("/admin/specialeditor")}>
+          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/specialeditor")}>
             სპეციალობები
           </StyledButton>
-          <StyledButton size="large" onClick={() => navigate("/admin/stats")}>
+          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/stats")}>
             სტატისტიკა
           </StyledButton>
-          <StyledButton size="large" onClick={() => navigate("/admin/workers")}>
+          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/workers")}>
             თანამშრომლები
           </StyledButton>
         </>

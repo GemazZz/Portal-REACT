@@ -132,7 +132,7 @@ const UserTests = () => {
                 body: JSON.stringify(userAnswers),
               })
                 .then((res) => res.json())
-                .then((json) => {
+                .then(() => {
                   navigate("/");
                 })
                 .catch((err) => {

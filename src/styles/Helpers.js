@@ -1,8 +1,7 @@
 import { styled } from "styled-components";
 import backgroundImg from "../assets/SU25Mastered.jpg";
 
-const backgroundClr1 = "#9d9d9d";
-const backgroundClr2 = "#bebebe";
+const backgroundClr1 = "#f0f8ff";
 
 export const StyledH1 = styled.h1`
   font-size: ${(prop) => (prop.size === "large" ? "65px" : "35px")};
@@ -12,6 +11,7 @@ export const StyledH1 = styled.h1`
   border-radius: 35px;
   cursor: default;
 `;
+
 export const StyledLabel = styled.label`
   width: 500px;
   font-size: 30px;
@@ -101,15 +101,10 @@ export const StyledCheckbox = styled.input`
   height: 30px;
 `;
 export const StyledCheckbox1 = styled.input`
-  margin-top: 16px;
-  margin-right: 12px;
-  width: 30px;
-  height: 30px;
-`;
-export const StyledFile = styled.input`
-  height: 45px;
-  width: 290px;
-  font-size: 20px;
+  margin-top: 11px;
+  margin-right: 15px;
+  width: 35px;
+  height: 35px;
 `;
 
 export const StyledLineDiv = styled.div`
@@ -163,11 +158,12 @@ export const StyledOptionBtn = styled.label`
   font-weight: 600;
   font-size: 25px;
   margin-top: 12px;
-  background-color: #f3cec6;
+  background-color: #7ec2a8;
   border-radius: 15px;
   border: 1px solid black;
   font-family: "Times New Roman", Times, serif;
   &:hover {
+    background-color: #5897ee;
     scale: 1.02;
   }
 `;
@@ -188,7 +184,7 @@ export const StyledStatsDiv = styled.div`
 `;
 
 export const StyledLabel1 = styled.label`
-  background-color: ${backgroundClr2};
+  background-color: #f3cec6;
   width: 400px;
   position: relative;
   font-size: 30px;

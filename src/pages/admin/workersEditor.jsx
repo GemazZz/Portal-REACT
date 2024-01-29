@@ -50,6 +50,7 @@ const SpecialEditor = () => {
               }}
             />
             <StyledButton
+              clr="light"
               onClick={(e) => {
                 e.preventDefault();
                 if (!newName || !newSurname || !newUserId) {
