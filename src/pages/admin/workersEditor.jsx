@@ -75,6 +75,7 @@ const SpecialEditor = () => {
             >
               დამატება
             </StyledButton>
+            <b style={{ margin: "15px", fontSize: "25px" }}>მოძებნა CRTL + F</b>
           </StyledForm>
           {workersData.map((item) => {
             return (

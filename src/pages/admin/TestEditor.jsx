@@ -68,6 +68,7 @@ const TestEditor = () => {
               return <option value={item}>{item}</option>;
             })}
           </StyledSelect>
+          <b style={{ margin: "15px", fontSize: "25px" }}>მოძებნა CRTL + F</b>
           {singleAnswerQuestions &&
             singleAnswerQuestions.map((question) => {
               const questionAnswers = questionSingleStructure(question);
@@ -95,8 +96,7 @@ const TestEditor = () => {
                           return item.questionId !== question.questionId;
                         });
                         await fetch(`http://192.168.101.44:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
-                          .then((res) => res.json())
-                          .then((json) => {
+                          .then(() => {
                             setQuestionData(filteredData);
                           })
                           .catch((err) => {
@@ -142,8 +142,7 @@ const TestEditor = () => {
                           return item.questionId !== question.questionId;
                         });
                         await fetch(`http://192.168.101.44:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
-                          .then((res) => res.json())
-                          .then((json) => {
+                          .then(() => {
                             setQuestionData(filteredData);
                           })
                           .catch((err) => {

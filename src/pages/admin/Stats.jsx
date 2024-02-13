@@ -27,6 +27,7 @@ const Stats = () => {
   return (
     <StyledBody>
       <StyledH1>სტატისტიკა</StyledH1>
+      <b style={{ margin: "15px", fontSize: "25px" }}>მოძებნა CRTL + F</b>
       {statsData.map((stat) => {
         const user = userData.find((user) => {
           return user.userId === parseInt(stat.userId);
