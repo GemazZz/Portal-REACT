@@ -31,12 +31,8 @@ const UserTests = () => {
   }, []);
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
-  const singleAnswerQuestions = questionData.filter((item) => {
-    return item.multipleAnswer === false;
-  });
-  const multipleAnswerQuestions = questionData.filter((item) => {
-    return item.multipleAnswer === true;
-  });
+  const singleAnswerQuestions = questionData.filter((item) => item.multipleAnswer === false);
+  const multipleAnswerQuestions = questionData.filter((item) => item.multipleAnswer === true);
 
   const singleShuffledArr = shuffleArray(singleAnswerQuestions);
   const multipleShuffledArr = shuffleArray(multipleAnswerQuestions);
