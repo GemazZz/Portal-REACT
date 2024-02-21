@@ -44,6 +44,7 @@ function Starter() {
       >
         სხვადასხვა
       </StyledButton>
+      <p style={{ position: "absolute", bottom: "10px", fontWeight: "bold" }}>GemazZz - 2023წ.</p>
     </StyledStartBody>
   );
 }

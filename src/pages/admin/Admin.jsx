@@ -18,11 +18,11 @@ const Admin = () => {
           <StyledButton size="large" clr="light" onClick={() => navigate("/admin/testeditor")}>
             ტესტების რედაქტირება
           </StyledButton>
-          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/specialeditor")}>
-            სპეციალობები
-          </StyledButton>
           <StyledButton size="large" clr="light" onClick={() => navigate("/admin/stats")}>
             სტატისტიკა
+          </StyledButton>
+          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/specialeditor")}>
+            სპეციალობები
           </StyledButton>
           <StyledButton size="large" clr="light" onClick={() => navigate("/admin/workers")}>
             თანამშრომლები
