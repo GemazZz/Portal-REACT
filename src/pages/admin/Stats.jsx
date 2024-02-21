@@ -24,6 +24,7 @@ const Stats = () => {
         console.log("Error:", err);
       });
   }, []);
+
   return (
     <StyledBody>
       <StyledH1>სტატისტიკა</StyledH1>

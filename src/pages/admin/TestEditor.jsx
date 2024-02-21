@@ -161,7 +161,7 @@ const TestEditor = () => {
       {accessToken !== "9007199254740991" && (
         <>
           <BackBtn />
-          <StyledH1>ERROR 403: Access Denied</StyledH1>
+          <StyledH1>ERROR 403: წვდომა შეზღუდულია!</StyledH1>
         </>
       )}
     </StyledBody>

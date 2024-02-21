@@ -143,7 +143,7 @@ const UserTests = () => {
       {accessToken !== "753951672943816" && (
         <>
           <BackBtn />
-          <StyledH1>ERROR 403: Access Denied</StyledH1>
+          <StyledH1>ERROR 403: წვდომა შეზღუდულია!</StyledH1>
         </>
       )}
     </StyledBody>
