@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { StyledH1, StyledStartBody } from "../../styles/Helpers";
+import { StyledCred, StyledH1, StyledStartBody } from "../../styles/Helpers";
 import { StyledButton } from "../../styles/Button";
 
 function Starter() {
@@ -44,7 +44,7 @@ function Starter() {
       >
         სხვადასხვა
       </StyledButton>
-      <p style={{ position: "absolute", bottom: "10px", fontWeight: "bold" }}>GemazZz - 2023წ.</p>
+      <StyledCred>GemazZz - 2023წ.</StyledCred>
     </StyledStartBody>
   );
 }

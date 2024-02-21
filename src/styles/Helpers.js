@@ -194,3 +194,10 @@ export const StyledLabel1 = styled.label`
   border: 1px solid black;
   cursor: default;
 `;
+
+export const StyledCred = styled.p`
+  position: absolute;
+  bottom: 10px;
+  font-weight: bold;
+  cursor: default;
+`;
