@@ -139,11 +139,18 @@ export const StyledNumberOfCorrectAnswer = styled.p`
   bottom: 10px;
   right: 10px;
 `;
-export const StyledP = styled.p`
+export const StyledPR = styled.p`
   font-size: 20px;
   position: absolute;
   top: 10px;
   right: 10px;
+`;
+
+export const StyledPL = styled.p`
+  font-size: 20px;
+  position: absolute;
+  top: 10px;
+  left: 10px;
 `;
 
 export const StyledOptionBtn = styled.label`

@@ -8,7 +8,7 @@ import {
   StyledOptionBtn,
   StyledQuestionLineDiv,
 } from "../../styles/Helpers";
-import { questionSingleStructure, questionMultiStructure, shuffleArray } from "../../helpers/Helpers";
+import { questionSingleStructure, questionMultiStructure, shuffleArray, timeDif } from "../../helpers/Helpers";
 import { useNavigate, useParams } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
 import BackBtn from "../../components/BackBtn";
@@ -19,6 +19,9 @@ const UserTests = () => {
   const currentSpecial = useParams().category;
   const userId = useParams().userId;
   const [questionData, setQuestionData] = useState([]);
+  const dateHour = new Date().getHours();
+  const dateMinute = new Date().getMinutes();
+
   useEffect(() => {
     fetch(`http://192.168.101.44:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
       .then((res) => res.json())
@@ -80,9 +83,9 @@ const UserTests = () => {
               return (
                 <StyledQuestionLineDiv key={question.questionId}>
                   <StyledLabel>{question.question}</StyledLabel>
-                  {shuffledQuestionAnswers.map((answer) => {
+                  {shuffledQuestionAnswers.map((answer, index) => {
                     return (
-                      <StyledDivLine>
+                      <StyledDivLine key={index}>
                         <StyledCheckbox1
                           type="checkbox"
                           name={question.questionId}
@@ -120,7 +123,9 @@ const UserTests = () => {
                 alert("შეავსეთ ტესტი!");
                 return;
               }
-              await fetch(`http://192.168.101.44:4000/v1/stats`, {
+              const time = timeDif(dateHour, dateMinute, new Date().getHours(), new Date().getMinutes());
+
+              await fetch(`http://192.168.101.44:4000/v1/stats/${time}`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

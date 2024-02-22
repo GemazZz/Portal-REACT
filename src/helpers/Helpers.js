@@ -46,3 +46,10 @@ export const questionMultiStructure = (question) => {
   }
   return questionAnswers;
 };
+
+export const timeDif = (dateHour1, dateMinute1, dateHour2, dateMinute2) => {
+  const time1 = dateHour1 * 60 + dateMinute1;
+  const time2 = dateHour2 * 60 + dateMinute2;
+  const dif = time2 - time1;
+  return dif;
+};

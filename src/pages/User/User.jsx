@@ -60,8 +60,12 @@ const User = () => {
             <option value="#" selected>
               სპეციალობა
             </option>
-            {parseSpecialData.map((item) => {
-              return <option value={item}>{item}</option>;
+            {parseSpecialData.map((item, index) => {
+              return (
+                <option value={item} key={index}>
+                  {item}
+                </option>
+              );
             })}
           </StyledSelect>
           <StyledButton
