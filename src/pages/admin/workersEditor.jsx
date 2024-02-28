@@ -7,7 +7,7 @@ const SpecialEditor = () => {
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
   const [newName, setNewName] = useState("");
   const [newSurname, setNewSurname] = useState("");
-  const [newUserId, setNewUserId] = useState();
+  const [newUserId, setNewUserId] = useState("");
   const [workersData, setWorkersData] = useState([]);
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const SpecialEditor = () => {
           </StyledForm>
           {workersData.map((item) => {
             return (
-              <StyledLineDiv>
+              <StyledLineDiv key={item.userId}>
                 <StyledLabel>
                   <span>
                     {item.surname} {item.name} || {item.userId}

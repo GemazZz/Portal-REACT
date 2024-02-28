@@ -57,9 +57,7 @@ const User = () => {
               setCurrentSpecial(e.target.value);
             }}
           >
-            <option value="#" selected>
-              სპეციალობა
-            </option>
+            <option value="#">სპეციალობა</option>
             {parseSpecialData.map((item, index) => {
               return (
                 <option value={item} key={index}>

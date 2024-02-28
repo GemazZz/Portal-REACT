@@ -32,6 +32,7 @@ const UserTests = () => {
         console.log("Error:", err);
       });
   }, []);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
 
   const singleAnswerQuestions = questionData.filter((item) => item.multipleAnswer === false);
@@ -52,9 +53,9 @@ const UserTests = () => {
               return (
                 <StyledQuestionLineDiv key={question.questionId}>
                   <StyledLabel>{question.question}</StyledLabel>
-                  {shuffledQuestionAnswers.map((answer) => {
+                  {shuffledQuestionAnswers.map((answer, index) => {
                     return (
-                      <StyledDivLine>
+                      <StyledDivLine key={question.questionId + index}>
                         <StyledCheckbox1
                           type="radio"
                           name={question.questionId}

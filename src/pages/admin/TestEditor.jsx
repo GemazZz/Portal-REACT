@@ -61,9 +61,7 @@ const TestEditor = () => {
               setCurrentSpecial(e.target.value);
             }}
           >
-            <option value="#" selected>
-              სპეციალობა
-            </option>
+            <option value="#">სპეციალობა</option>
             {parseSpecialData.map((item) => {
               return <option value={item}>{item}</option>;
             })}
@@ -76,16 +74,17 @@ const TestEditor = () => {
                 currentSpecial === question.category && (
                   <StyledQuestionLineDiv key={question.questionId}>
                     <StyledLabel>{question.question}</StyledLabel>
-                    {questionAnswers.map((answer) => {
+                    {questionAnswers.map((answer, index) => {
                       return (
-                        <StyledDivLine>
+                        <StyledDivLine key={question.questionId + index}>
                           <StyledCheckbox1
                             type="radio"
                             name={question.questionId}
                             id={answer + "single"}
                             checked={question.correctAnswer === answer}
+                            readOnly
                           />
-                          <StyledOptionBtn for={answer + "single"}>{answer}</StyledOptionBtn>
+                          <StyledOptionBtn>{answer}</StyledOptionBtn>
                         </StyledDivLine>
                       );
                     })}
@@ -117,9 +116,9 @@ const TestEditor = () => {
                 currentSpecial === question.category && (
                   <StyledQuestionLineDiv key={question.questionId}>
                     <StyledLabel>{question.question}</StyledLabel>
-                    {questionAnswers.map((answer) => {
+                    {questionAnswers.map((answer, index) => {
                       return (
-                        <StyledDivLine>
+                        <StyledDivLine key={question.questionId + index}>
                           <StyledCheckbox1
                             type="checkbox"
                             name={question.questionId}
@@ -130,8 +129,9 @@ const TestEditor = () => {
                               (question.thirdAnswer === answer && question.checkThirdAnswer === true) ||
                               (question.fourthAnswer === answer && question.checkFourthAnswer === true)
                             }
+                            readOnly
                           />
-                          <StyledOptionBtn for={answer + "multi"}>{answer}</StyledOptionBtn>
+                          <StyledOptionBtn>{answer}</StyledOptionBtn>
                         </StyledDivLine>
                       );
                     })}

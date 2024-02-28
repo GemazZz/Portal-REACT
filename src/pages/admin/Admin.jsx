@@ -12,7 +12,7 @@ const Admin = () => {
       {accessToken === "9007199254740991" && (
         <>
           <StyledH1 size="large">ადმინისტრაცია</StyledH1>
-          <StyledButton clr="light" size="large" onClick={() => navigate("/admin/testcreation")}>
+          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/testcreation")}>
             ტესტების შედგენა
           </StyledButton>
           <StyledButton size="large" clr="light" onClick={() => navigate("/admin/testeditor")}>

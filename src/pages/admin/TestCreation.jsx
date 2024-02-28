@@ -107,9 +107,7 @@ const TestCreation = () => {
                 setCategory(e.target.value);
               }}
             >
-              <option value="#" selected>
-                სპეციალობა
-              </option>
+              <option value="#">სპეციალობა</option>
               {parseData.map((item) => {
                 return (
                   <option value={item} key={item}>
@@ -118,8 +116,6 @@ const TestCreation = () => {
                 );
               })}
             </StyledSelect>
-            <StyledCheckbox type="checkbox" style={{ right: "580px" }} onChange={() => setMultipleAnswer(!multipleAnswer)} />
-            <StyledLabel style={{ position: "absolute", right: "80px", top: "177px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
           </div>
           <StyledTextArea
             size="large"
@@ -130,6 +126,14 @@ const TestCreation = () => {
             }}
           />
           <div>
+            <div style={{ margin: "20px" }}>
+              <StyledCheckbox
+                type="checkbox"
+                style={{ left: "760px", top: "400px", margin: "0px" }}
+                onChange={() => setMultipleAnswer(!multipleAnswer)}
+              />
+              <StyledLabel style={{ position: "relative", left: "80px", margin: "40px", padding: "0px" }}>რამდენიმე სწორი პასუხი</StyledLabel>
+            </div>
             {!multipleAnswer && (
               <>
                 <StyledLabel>პასუხი 1:</StyledLabel>
