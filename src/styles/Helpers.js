@@ -13,7 +13,7 @@ export const StyledH1 = styled.h1`
 `;
 
 export const StyledLabel = styled.label`
-  width: 500px;
+  width: 600px;
   font-size: 30px;
   margin-top: ${(prop) => (prop.size === "large" ? "30px" : "0px")};
   margin-bottom: 5px;

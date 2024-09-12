@@ -62,7 +62,7 @@ const UserTests = () => {
                           type="radio"
                           name={question.questionId}
                           value={answer}
-                          id={answer + "single"}
+                          id={answer + index + "single"}
                           onChange={() => {
                             if (!userAnswers[question.questionId]) {
                               userAnswers[question.questionId] = answer;
@@ -71,7 +71,7 @@ const UserTests = () => {
                             }
                           }}
                         />
-                        <StyledOptionBtn htmlFor={answer + "single"}>{answer}</StyledOptionBtn>
+                        <StyledOptionBtn htmlFor={answer + index + "single"}>{answer}</StyledOptionBtn>
                       </StyledDivLine>
                     );
                   })}
@@ -93,7 +93,7 @@ const UserTests = () => {
                           type="checkbox"
                           name={question.questionId}
                           value={answer}
-                          id={answer + "multi"}
+                          id={answer + index + "multi"}
                           onClick={() => {
                             if (!userAnswers[question.questionId]) {
                               userAnswers[question.questionId] = [answer];
@@ -110,7 +110,7 @@ const UserTests = () => {
                             }
                           }}
                         />
-                        <StyledOptionBtn htmlFor={answer + "multi"}>{answer}</StyledOptionBtn>
+                        <StyledOptionBtn htmlFor={answer + index + "multi"}>{answer}</StyledOptionBtn>
                       </StyledDivLine>
                     );
                   })}
