@@ -208,3 +208,6 @@ export const StyledCred = styled.p`
   font-weight: bold;
   cursor: default;
 `;
+export const StyledNumberOfTest = styled.p`
+  font-size: 30px;
+`;

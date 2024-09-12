@@ -5,6 +5,7 @@ import {
   StyledH1,
   StyledLabel,
   StyledNumberOfCorrectAnswer,
+  StyledNumberOfTest,
   StyledOptionBtn,
   StyledQuestionLineDiv,
 } from "../../styles/Helpers";
@@ -47,11 +48,12 @@ const UserTests = () => {
         <>
           <StyledH1 size="large">გისურვებთ წარმატებებს!</StyledH1>
           {singleAnswerQuestions &&
-            singleShuffledArr.map((question) => {
+            singleShuffledArr.map((question, index) => {
               const questionAnswers = questionSingleStructure(question);
               const shuffledQuestionAnswers = shuffleArray(questionAnswers);
               return (
                 <StyledQuestionLineDiv key={question.questionId}>
+                  <StyledNumberOfTest>{index + 1}</StyledNumberOfTest>
                   <StyledLabel>{question.question}</StyledLabel>
                   {shuffledQuestionAnswers.map((answer, index) => {
                     return (
