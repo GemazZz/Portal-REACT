@@ -62,7 +62,7 @@ const UserTests = () => {
                           type="radio"
                           name={question.questionId}
                           value={answer}
-                          id={answer + index + "single"}
+                          id={answer + question.questionId + index + "single"}
                           onChange={() => {
                             if (!userAnswers[question.questionId]) {
                               userAnswers[question.questionId] = answer;
@@ -71,7 +71,7 @@ const UserTests = () => {
                             }
                           }}
                         />
-                        <StyledOptionBtn htmlFor={answer + index + "single"}>{answer}</StyledOptionBtn>
+                        <StyledOptionBtn htmlFor={answer + question.questionId + index + "single"}>{answer}</StyledOptionBtn>
                       </StyledDivLine>
                     );
                   })}
@@ -80,20 +80,20 @@ const UserTests = () => {
               );
             })}
           {multipleAnswerQuestions &&
-            multipleShuffledArr.map((question) => {
+            multipleShuffledArr.map((question, index) => {
               const questionAnswers = questionMultiStructure(question);
               const shuffledQuestionAnswers = shuffleArray(questionAnswers);
               return (
                 <StyledQuestionLineDiv key={question.questionId}>
                   <StyledLabel>{question.question}</StyledLabel>
-                  {shuffledQuestionAnswers.map((answer, index) => {
+                  {shuffledQuestionAnswers.map((answer) => {
                     return (
                       <StyledDivLine key={index}>
                         <StyledCheckbox1
                           type="checkbox"
                           name={question.questionId}
                           value={answer}
-                          id={answer + index + "multi"}
+                          id={answer + question.questionId + index + "multi"}
                           onClick={() => {
                             if (!userAnswers[question.questionId]) {
                               userAnswers[question.questionId] = [answer];
@@ -110,7 +110,7 @@ const UserTests = () => {
                             }
                           }}
                         />
-                        <StyledOptionBtn htmlFor={answer + index + "multi"}>{answer}</StyledOptionBtn>
+                        <StyledOptionBtn htmlFor={answer + question.questionId + index + "multi"}>{answer}</StyledOptionBtn>
                       </StyledDivLine>
                     );
                   })}
