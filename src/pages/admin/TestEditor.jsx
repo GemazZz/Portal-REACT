@@ -11,7 +11,7 @@ import {
   StyledSelect,
 } from "../../styles/Helpers";
 import { StyledDltBtn1 } from "../../styles/Button";
-import { questionMultiStructure, questionSingleStructure } from "../../helpers/Helpers";
+import { questionMultiStructure, questionSingleStructure, startURL } from "../../helpers/Helpers";
 import BackBtn from "../../components/BackBtn";
 
 const TestEditor = () => {
@@ -29,7 +29,7 @@ const TestEditor = () => {
   });
 
   useEffect(() => {
-    fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" })
+    fetch(`${startURL}/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         const parsedData = json.map((special) => special.special);
@@ -41,7 +41,7 @@ const TestEditor = () => {
   }, []);
 
   useEffect(() => {
-    fetch(`http://192.168.101.44:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
+    fetch(`${startURL}/v1/questionEditor/${currentSpecial}`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setQuestionData(json);
@@ -94,7 +94,7 @@ const TestEditor = () => {
                         const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
-                        await fetch(`http://192.168.101.44:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
+                        await fetch(`${startURL}/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
                           .then(() => {
                             setQuestionData(filteredData);
                           })
@@ -141,7 +141,7 @@ const TestEditor = () => {
                         const filteredData = questionData.filter((item) => {
                           return item.questionId !== question.questionId;
                         });
-                        await fetch(`http://192.168.101.44:4000/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
+                        await fetch(`${startURL}/v1/questionEditor/${question.questionId}`, { method: "DELETE" })
                           .then(() => {
                             setQuestionData(filteredData);
                           })

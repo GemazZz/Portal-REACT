@@ -3,12 +3,13 @@ import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledSelect } from "../../styles/Helpers";
 import { useNavigate } from "react-router-dom";
 import BackBtn from "../../components/BackBtn";
+import { startURL } from "../../helpers/Helpers";
 
 const User = () => {
   const [userId, setUserId] = useState("");
   const [userData, setUserData] = useState([]);
   useEffect(() => {
-    fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" })
+    fetch(`${startURL}/v1/workersEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setUserData(json);
@@ -16,7 +17,7 @@ const User = () => {
       .catch((err) => {
         console.log("Error:", err);
       });
-    fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" })
+    fetch(`${startURL}/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         const parsedData = json.map((special) => special.special);

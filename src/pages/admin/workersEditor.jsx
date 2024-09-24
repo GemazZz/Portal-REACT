@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { StyledButton, StyledDltBtn } from "../../styles/Button";
 import { StyledBody, StyledForm, StyledH1, StyledInput, StyledLabel, StyledLineDiv } from "../../styles/Helpers";
 import BackBtn from "../../components/BackBtn";
+import { startURL } from "../../helpers/Helpers";
 
 const SpecialEditor = () => {
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
@@ -11,7 +12,7 @@ const SpecialEditor = () => {
   const [workersData, setWorkersData] = useState([]);
 
   useEffect(() => {
-    fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" })
+    fetch(`${startURL}/v1/workersEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setWorkersData(json);
@@ -57,8 +58,8 @@ const SpecialEditor = () => {
                   alert("შეავსეთ ფორმა სრულად!");
                   return;
                 }
-                fetch(`http://192.168.101.44:4000/v1/workersEditor/${newUserId}/${newName}/${newSurname}`, { method: "POST" })
-                  .then(fetch(`http://192.168.101.44:4000/v1/workersEditor`, { method: "GET" }))
+                fetch(`${startURL}/v1/workersEditor/${newUserId}/${newName}/${newSurname}`, { method: "POST" })
+                  .then(fetch(`${startURL}/v1/workersEditor`, { method: "GET" }))
                   .then((res) => res.json())
                   .then((json) => {
                     setWorkersData(json);
@@ -87,7 +88,7 @@ const SpecialEditor = () => {
                 </StyledLabel>
                 <StyledDltBtn
                   onClick={() => {
-                    fetch(`http://192.168.101.44:4000/v1/workersEditor/${item.userId}`, { method: "DELETE" })
+                    fetch(`${startURL}/v1/workersEditor/${item.userId}`, { method: "DELETE" })
                       .then((res) => res.json())
                       .then((json) => {
                         setWorkersData(json);

@@ -9,7 +9,7 @@ import {
   StyledOptionBtn,
   StyledQuestionLineDiv,
 } from "../../styles/Helpers";
-import { questionSingleStructure, questionMultiStructure, shuffleArray, timeDif } from "../../helpers/Helpers";
+import { questionSingleStructure, questionMultiStructure, shuffleArray, timeDif, startURL } from "../../helpers/Helpers";
 import { useNavigate, useParams } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
 import BackBtn from "../../components/BackBtn";
@@ -24,7 +24,7 @@ const UserTests = () => {
   const dateMinute = new Date().getMinutes();
 
   useEffect(() => {
-    fetch(`http://192.168.101.44:4000/v1/questionEditor/${currentSpecial}`, { method: "GET" })
+    fetch(`${startURL}/v1/questionEditor/${currentSpecial}`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         setQuestionData(json);
@@ -128,7 +128,7 @@ const UserTests = () => {
               }
               const time = timeDif(dateHour, dateMinute, new Date().getHours(), new Date().getMinutes());
 
-              await fetch(`http://192.168.101.44:4000/v1/stats/${time}`, {
+              await fetch(`${startURL}/v1/stats/${time}`, {
                 method: "POST",
                 headers: {
                   "Content-Type": "application/json",

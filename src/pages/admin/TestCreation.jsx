@@ -3,6 +3,7 @@ import { StyledButton } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledInput, StyledLabel, StyledSelect, StyledTextArea, StyledCheckbox } from "../../styles/Helpers";
 import { useEffect, useState } from "react";
 import BackBtn from "../../components/BackBtn";
+import { startURL } from "../../helpers/Helpers";
 
 const TestCreation = () => {
   const navigate = useNavigate();
@@ -26,7 +27,7 @@ const TestCreation = () => {
   const [checkFourthAnswer, setCheckFourthAnswer] = useState(false);
 
   useEffect(() => {
-    fetch(`http://192.168.101.44:4000/v1/specialsEditor`, { method: "GET" })
+    fetch(`${startURL}/v1/specialsEditor`, { method: "GET" })
       .then((res) => res.json())
       .then((json) => {
         const parsedData = json.map((special) => special.special);
@@ -42,21 +43,19 @@ const TestCreation = () => {
   let questionData;
   if (!multipleAnswer) {
     questionData = {
-      question,
-      multipleAnswer,
-      questionId: new Date().getTime(),
       category,
+      question,
       correctAnswer,
       secondAnswer,
       thirdAnswer,
       fourthAnswer,
+      multipleAnswer,
+      questionId: new Date().getTime(),
     };
   } else {
     questionData = {
-      question,
-      multipleAnswer,
-      questionId: new Date().getTime(),
       category,
+      question,
       firstAnswer,
       checkFirstAnswer,
       secondAnswer,
@@ -65,6 +64,8 @@ const TestCreation = () => {
       checkThirdAnswer,
       fourthAnswer,
       checkFourthAnswer,
+      multipleAnswer,
+      questionId: new Date().getTime(),
     };
   }
 
@@ -77,7 +78,7 @@ const TestCreation = () => {
       alert("ჩაწერეთ კითხვა");
       return;
     }
-    await fetch(`http://192.168.101.44:4000/v1/questionEditor`, {
+    await fetch(`${startURL}/v1/questionEditor`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

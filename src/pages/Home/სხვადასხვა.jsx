@@ -5,7 +5,7 @@ const Others = () => {
   return (
     <StyledStartBody>
       <BackBtn />
-      <StyledH1>დროებით ხელმიუწვდომელია</StyledH1>
+      <StyledH1>დროებით მიუწვდომელია</StyledH1>
     </StyledStartBody>
   );
 };
