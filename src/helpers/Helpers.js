@@ -55,3 +55,39 @@ export const timeDif = (dateHour1, dateMinute1, dateHour2, dateMinute2) => {
   const dif = time2 - time1;
   return dif;
 };
+
+export const arrayToObject = (array) => {
+  return array.reduce((obj, item) => {
+    if (parseInt(item) !== undefined) {
+      const key = Object.keys(item)[0];
+      obj[key] = item[key];
+      return obj;
+    }
+  }, {});
+};
+
+export const compareObjects = (obj1, obj2) => {
+  const result = [];
+
+  const allKeys = new Set([...Object.keys(obj1), ...Object.keys(obj2)]);
+
+  allKeys.forEach((key) => {
+    if (obj1.hasOwnProperty(key) && obj2.hasOwnProperty(key)) {
+      if (obj1[key] !== obj2[key]) {
+        result.push({
+          key: key,
+          obj1Value: obj1[key],
+          obj2Value: obj2[key],
+        });
+      }
+    } else if (obj1.hasOwnProperty(key)) {
+      result.push({
+        key: key,
+        obj1Value: obj1[key],
+        obj2Value: null,
+      });
+    }
+  });
+
+  return result;
+};

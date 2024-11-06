@@ -2,8 +2,10 @@ import { useEffect, useState } from "react";
 import { StyledDltBtn2 } from "../../styles/Button";
 import { StyledBody, StyledH1, StyledLabel1, StyledPL, StyledPR, StyledStatsDiv } from "../../styles/Helpers";
 import { startURL } from "../../helpers/Helpers";
+import { useNavigate } from "react-router-dom";
 
 const Stats = () => {
+  const navigate = useNavigate();
   const [statsData, setStatsData] = useState([]);
   const [userData, setUserData] = useState([]);
   useEffect(() => {
@@ -35,7 +37,7 @@ const Stats = () => {
         });
         if (user) {
           return (
-            <StyledStatsDiv key={index}>
+            <StyledStatsDiv key={index} onClick={() => navigate(`/admin/stats/${stat.statsId}`)}>
               <StyledLabel1>
                 {user.name} {user.surname}
               </StyledLabel1>

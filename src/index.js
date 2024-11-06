@@ -16,6 +16,7 @@ import User from "./pages/User/User";
 import UserTests from "./pages/User/UserTests";
 import ErrorPage from "./pages/Home/ErrorPage";
 import WorkersEditor from "./pages/Admin/workersEditor";
+import StatReview from "./pages/Admin/StatReview";
 
 const router = createBrowserRouter([
   {
@@ -57,6 +58,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/stats",
     element: <Stats />,
+  },
+  {
+    path: "/admin/stats/:statsId",
+    element: <StatReview />,
   },
   {
     path: "/admin/workers",
