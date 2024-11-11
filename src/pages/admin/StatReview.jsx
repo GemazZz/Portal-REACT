@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { StyledBody, StyledH1, StyledLabel, StyledOptionBtn, StyledQuestionLineDiv } from "../../styles/Helpers";
+import { StyledBody, StyledH1, StyledLabel, StyledNumberOfTest, StyledOptionBtn, StyledQuestionLineDiv } from "../../styles/Helpers";
 import { arrayToObject, compareObjects, startURL } from "../../helpers/Helpers";
 import { useParams } from "react-router-dom";
 
@@ -57,6 +57,7 @@ const StatReview = () => {
             });
             return (
               <StyledQuestionLineDiv key={index}>
+                <StyledNumberOfTest>{index + 1}</StyledNumberOfTest>
                 <StyledLabel>{question.question}</StyledLabel>
                 <div style={{ display: "flex", gap: 20, alignItems: "center", justifyContent: "start" }}>
                   <p style={{ fontSize: 30 }}>დაფიქსირებული:</p>
