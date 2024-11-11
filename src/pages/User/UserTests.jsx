@@ -42,7 +42,7 @@ const UserTests = () => {
   let userAnswers = { userId, special: currentSpecial };
   return (
     <StyledBody>
-      {accessToken === "753951692943816" && (
+      {(accessToken === "753951692943816" && (
         <>
           <StyledH1 size="large">გისურვებთ წარმატებებს!</StyledH1>
           {singleAnswerQuestions &&
@@ -145,12 +145,7 @@ const UserTests = () => {
             დასრულება
           </StyledButton>
         </>
-      )}
-      {accessToken !== "753951672943816" && (
-        <>
-          <StyledH1>ERROR 403: წვდომა შეზღუდულია!</StyledH1>
-        </>
-      )}
+      )) || <StyledH1>ERROR 403: წვდომა შეზღუდულია!</StyledH1>}
     </StyledBody>
   );
 };
