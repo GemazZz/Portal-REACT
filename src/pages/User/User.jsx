@@ -72,12 +72,13 @@ const User = () => {
               if (!foundUser) {
                 alert("შეიყვანეთ საიდენტიფიკაციო კოდი სწორად");
                 return;
-              }
-              if (!currentSpecial || currentSpecial === "#") {
+              } else if (!currentSpecial || currentSpecial === "#") {
                 alert("აირჩიეთ სპეციალობა");
                 return;
+              } else {
+                sessionStorage.setItem("accessToken", "753951692943816");
+                navigate("/user/" + userId + "/" + currentSpecial);
               }
-              navigate("/user/" + userId + "/" + currentSpecial);
             }}
           >
             დაწყება

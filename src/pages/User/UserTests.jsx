@@ -12,7 +12,6 @@ import {
 import { questionSingleStructure, questionMultiStructure, shuffleArray, timeDif, startURL } from "../../helpers/Helpers";
 import { useNavigate, useParams } from "react-router-dom";
 import { StyledButton } from "../../styles/Button";
-import BackBtn from "../../components/BackBtn";
 import { useEffect, useState } from "react";
 
 const UserTests = () => {
@@ -34,8 +33,7 @@ const UserTests = () => {
       });
   }, []);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
-
+  const accessToken = sessionStorage.getItem("accessToken");
   const singleAnswerQuestions = questionData.filter((item) => item.multipleAnswer === false);
   const multipleAnswerQuestions = questionData.filter((item) => item.multipleAnswer === true);
 
@@ -44,7 +42,7 @@ const UserTests = () => {
   let userAnswers = { userId, special: currentSpecial };
   return (
     <StyledBody>
-      {accessToken === "753951672943816" && (
+      {accessToken === "753951692943816" && (
         <>
           <StyledH1 size="large">გისურვებთ წარმატებებს!</StyledH1>
           {singleAnswerQuestions &&
@@ -150,7 +148,6 @@ const UserTests = () => {
       )}
       {accessToken !== "753951672943816" && (
         <>
-          <BackBtn />
           <StyledH1>ERROR 403: წვდომა შეზღუდულია!</StyledH1>
         </>
       )}
