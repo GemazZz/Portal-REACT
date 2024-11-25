@@ -48,7 +48,8 @@ const Stats = () => {
                 <b>{stat.time}</b> წუთი
               </StyledPR>
               <StyledDltBtn2
-                onClick={async () => {
+                onClick={async (e) => {
+                  e.stopPropagation();
                   await fetch(`${startURL}/v1/stats/${stat.statsId}`, { method: "DELETE" })
                     .then((res) => res.json())
                     .then((json) => {
