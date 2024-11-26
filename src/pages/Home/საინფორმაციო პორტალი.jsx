@@ -39,10 +39,10 @@ function Starter() {
       <StyledButton
         size="large"
         onClick={() => {
-          navigate("/others");
+          navigate("/problem");
         }}
       >
-        სხვადასხვა
+        პრობლემის დაფიქსირება
       </StyledButton>
       <StyledCred>GemazZz - 2023წ.</StyledCred>
     </StyledStartBody>

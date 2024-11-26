@@ -6,7 +6,6 @@ import Starter from "./pages/Home/საინფორმაციო პორ
 import Documentation from "./pages/Home/დოკუმენტაცია";
 import Quality from "./pages/Home/ხარისხის მართვის სისტემა";
 import TestCenter from "./pages/Home/სასწავლო ცენტრი";
-import Others from "./pages/Home/სხვადასხვა";
 import Admin from "./pages/Admin/Admin";
 import TestCreation from "./pages/Admin/TestCreation";
 import TestEditor from "./pages/Admin/TestEditor";
@@ -17,6 +16,7 @@ import UserTests from "./pages/User/UserTests";
 import ErrorPage from "./pages/Home/ErrorPage";
 import WorkersEditor from "./pages/Admin/workersEditor";
 import StatReview from "./pages/Admin/StatReview";
+import Problem from "./pages/Home/პრობლემის დაფიქსირება";
 
 const router = createBrowserRouter([
   {
@@ -36,8 +36,8 @@ const router = createBrowserRouter([
     element: <TestCenter />,
   },
   {
-    path: "/others",
-    element: <Others />,
+    path: "/problem",
+    element: <Problem />,
   },
   {
     path: "/admin",
