@@ -1,0 +1,16 @@
+export { default as Admin } from "./Admin/Admin";
+export { default as ProblemAdmin } from "./Admin/ProblemAdmin";
+export { default as SpecialEditor } from "./Admin/SpecialEditor";
+export { default as Stats } from "./Admin/Stats";
+export { default as TestCreation } from "./Admin/TestCreation";
+export { default as TestEditor } from "./Admin/TestEditor";
+export { default as StatReview } from "./Admin/StatReview";
+export { default as WorkersEditor } from "./Admin/WorkersEditor";
+export { default as ErrorPage } from "./Home/ErrorPage";
+export { default as Documentation } from "./Home/დოკუმენტაცია";
+export { default as ProblemUser } from "./Home/პრობლემის დაფიქსირება";
+export { default as Starter } from "./Home/საინფორმაციო პორტალი";
+export { default as TestCenter } from "./Home/სასწავლო ცენტრი";
+export { default as Quality } from "./Home/ხარისხის მართვის სისტემა";
+export { default as User } from "./User/User";
+export { default as UserTests } from "./User/UserTests";

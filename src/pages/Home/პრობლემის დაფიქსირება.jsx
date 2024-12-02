@@ -5,7 +5,7 @@ import { StyledH1, StyledInput, StyledStartBody, StyledTextArea } from "../../st
 import { startURL } from "../../helpers/Helpers";
 import { useNavigate } from "react-router-dom";
 
-const Problem = () => {
+const ProblemUser = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
   const [problem, setProblem] = useState("");
@@ -53,4 +53,4 @@ const Problem = () => {
   );
 };
 
-export default Problem;
+export default ProblemUser;

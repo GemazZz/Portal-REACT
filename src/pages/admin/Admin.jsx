@@ -27,6 +27,9 @@ const Admin = () => {
           <StyledButton size="large" clr="light" onClick={() => navigate("/admin/workers")}>
             თანამშრომლები
           </StyledButton>
+          <StyledButton size="large" clr="light" onClick={() => navigate("/admin/problems")}>
+            პრობლემები
+          </StyledButton>
         </>
       )}
       {accessToken !== "9007199254740991" && <StyledH1>ERROR 403: წვდომა შეზღუდულია!</StyledH1>}

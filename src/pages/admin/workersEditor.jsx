@@ -4,7 +4,7 @@ import { StyledBody, StyledForm, StyledH1, StyledInput, StyledLabel, StyledLineD
 import BackBtn from "../../components/BackBtn";
 import { startURL } from "../../helpers/Helpers";
 
-const SpecialEditor = () => {
+const WorkersEditor = () => {
   const accessToken = JSON.parse(sessionStorage.getItem("accessToken"));
   const [newName, setNewName] = useState("");
   const [newSurname, setNewSurname] = useState("");
@@ -115,4 +115,4 @@ const SpecialEditor = () => {
   );
 };
 
-export default SpecialEditor;
+export default WorkersEditor;

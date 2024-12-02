@@ -2,7 +2,7 @@ import { useNavigate } from "react-router-dom";
 import { StyledCred, StyledH1, StyledStartBody } from "../../styles/Helpers";
 import { StyledButton } from "../../styles/Button";
 
-function Starter() {
+const Starter = () => {
   sessionStorage.removeItem("accessToken");
   const navigate = useNavigate();
   return (
@@ -47,6 +47,6 @@ function Starter() {
       <StyledCred>GemazZz - 2023წ.</StyledCred>
     </StyledStartBody>
   );
-}
+};
 
 export default Starter;

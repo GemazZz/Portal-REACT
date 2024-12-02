@@ -2,7 +2,7 @@ import BackBtn from "../../components/BackBtn";
 import { StyledButton } from "../../styles/Button";
 import { StyledH1, StyledStartBody } from "../../styles/Helpers";
 
-function Quality() {
+const Quality = () => {
   return (
     <StyledStartBody>
       <BackBtn />
@@ -14,6 +14,6 @@ function Quality() {
       <StyledButton size="large">აუდიტის შედეგები</StyledButton>
     </StyledStartBody>
   );
-}
+};
 
 export default Quality;
