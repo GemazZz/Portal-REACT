@@ -180,9 +180,9 @@ export const StyledStatsDiv = styled.div`
   display: flex;
   background-color: ${backgroundClr1};
   width: 1200px;
-  min-height: 200px;
+  min-height: 230px;
   margin: 12px;
-  padding: 20px;
+  padding-top: 40px;
   padding-bottom: 40px;
   justify-content: center;
   align-items: center;

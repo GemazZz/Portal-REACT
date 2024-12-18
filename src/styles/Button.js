@@ -81,7 +81,7 @@ export const StyledDltBtn2 = styled.button`
   height: 50px;
   border-radius: 20px;
   right: 15px;
-  bottom: 25px;
+  bottom: 15px;
   transition: 0.12s;
   font-size: 20px;
   background-color: ${backBtnClr};
