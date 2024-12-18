@@ -7,6 +7,7 @@ export const StyledButton = styled.button`
   height: ${(prop) => (prop.size === "large" ? "80px" : "50px")};
   transition: 0.12s;
   cursor: pointer;
+  border: 1px solid black;
   background-color: ${(prop) => (prop.clr === "light" ? "#5db492" : mainBtnColor)};
   border-radius: 15px;
   font-family: "Times New Roman", Times, serif;

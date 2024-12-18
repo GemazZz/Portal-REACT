@@ -190,6 +190,22 @@ export const StyledStatsDiv = styled.div`
   border-radius: 10px;
 `;
 
+export const StyledProblemDiv = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background-color: ${backgroundClr1};
+  width: 1200px;
+  min-height: 200px;
+  margin: 12px;
+  padding: 20px;
+  padding-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+`;
+
 export const StyledLabel1 = styled.label`
   background-color: #f3cec6;
   width: 400px;
