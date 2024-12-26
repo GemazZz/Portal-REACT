@@ -6,6 +6,7 @@ export { default as TestCreation } from "./Admin/TestCreation";
 export { default as TestEditor } from "./Admin/TestEditor";
 export { default as StatReview } from "./Admin/StatReview";
 export { default as WorkersEditor } from "./Admin/WorkersEditor";
+export { default as ProblemChange } from "./Admin/ProblemChange";
 export { default as ErrorPage } from "./Home/ErrorPage";
 export { default as Documentation } from "./Home/დოკუმენტაცია";
 export { default as ProblemUser } from "./Home/პრობლემის დაფიქსირება";

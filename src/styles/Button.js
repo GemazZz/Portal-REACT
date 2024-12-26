@@ -92,3 +92,21 @@ export const StyledDltBtn2 = styled.button`
     scale: 0.96;
   }
 `;
+
+export const StyledDltBtn3 = styled.button`
+  position: relative;
+  width: 120px;
+  height: 50px;
+  border-radius: 20px;
+  right: 15px;
+  bottom: 15px;
+  transition: 0.12s;
+  font-size: 20px;
+  background-color: ${backBtnClr};
+  &:hover {
+    scale: 1.07;
+  }
+  &:active {
+    scale: 0.96;
+  }
+`;

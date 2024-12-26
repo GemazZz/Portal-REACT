@@ -20,6 +20,7 @@ import {
   UserTests,
   WorkersEditor,
 } from "./pages";
+import ProblemChange from "./pages/Admin/ProblemChange";
 
 const router = createBrowserRouter([
   {
@@ -73,6 +74,10 @@ const router = createBrowserRouter([
   {
     path: "/admin/problems",
     element: <ProblemAdmin />,
+  },
+  {
+    path: "/admin/problems/:problemsId",
+    element: <ProblemChange />,
   },
   {
     path: "/user",

@@ -39,6 +39,15 @@ export const StyledStartBody = styled.div`
   flex-direction: column;
   align-items: center;
 `;
+export const StyledProblemBody = styled.div`
+  background-size: cover;
+  position: relative;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
 
 export const StyledDivLine = styled.div`
   position: relative;
@@ -208,6 +217,17 @@ export const StyledProblemDiv = styled.div`
 
 export const StyledLabel1 = styled.label`
   background-color: #f3cec6;
+  width: 400px;
+  position: relative;
+  font-size: 30px;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 35px;
+  border: 1px solid black;
+  cursor: default;
+`;
+
+export const StyledName = styled.label`
   width: 400px;
   position: relative;
   font-size: 30px;
